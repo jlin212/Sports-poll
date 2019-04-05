@@ -1,0 +1,23 @@
+{
+  "connection": "default",
+  "collectionName": "clubs",
+  "info": {
+    "name": "club",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "name": {
+      "default": "",
+      "type": "string"
+    },
+    "leagues": {
+      "collection": "league",
+      "via": "club"
+    }
+  }
+}

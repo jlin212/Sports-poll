@@ -7,7 +7,7 @@ import { defineMessages } from 'react-intl';
 
 export default defineMessages({
   header: {
-    id: 'app.components.InputRadio.header',
+    id: 'header',
     defaultMessage: 'This is the InputRadio component !',
   },
 });

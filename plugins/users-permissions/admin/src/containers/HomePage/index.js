@@ -204,8 +204,8 @@ export class HomePage extends React.Component {
         <form onSubmit={(e) => e.preventDefault()}>
           <div className={cn('container-fluid', styles.containerFluid)}>
             <PluginHeader
-              title={{ id: 'users-permissions.HomePage.header.title' }}
-              description={{ id: 'users-permissions.HomePage.header.description' }}
+              title={{ id: 'header.title' }}
+              description={{ id: 'header.description' }}
               actions={headerActions}
             />
             <HeaderNav links={this.headerNavLinks} />

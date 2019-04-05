@@ -245,13 +245,13 @@ export class AuthPage extends React.Component { // eslint-disable-line react/pre
         <div className={styles.wrapper}>
           <div className={styles.headerContainer}>
             {this.isAuthType('register') ? (
-              <FormattedMessage id="users-permissions.Auth.form.header.register" />
+              <FormattedMessage id="header.register" />
             ) : (
               <img src={LogoStrapi} alt="logo" />
             )}
           </div>
           <div className={styles.headerDescription}>
-            {this.isAuthType('register') && <FormattedMessage id="users-permissions.Auth.header.register.description" />}
+            {this.isAuthType('register') && <FormattedMessage id="header.register.description" />}
           </div>
 
           <div

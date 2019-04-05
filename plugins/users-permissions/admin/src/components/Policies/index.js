@@ -19,7 +19,7 @@ class Policies extends React.Component { // eslint-disable-line react/prefer-sta
   handleChange = (e) => this.context.onChange(e);
 
   render() {
-    const baseTitle = 'users-permissions.Policies.header';
+    const baseTitle = 'header';
     const title = this.props.shouldDisplayPoliciesHint ? 'hint' : 'title';
     const value = get(this.props.values, this.props.inputSelectName);
     const path = without(this.props.inputSelectName.split('.'), 'permissions', 'controllers', 'policy');

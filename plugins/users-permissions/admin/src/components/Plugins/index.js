@@ -25,10 +25,10 @@ class Plugins extends React.Component {
         <div className={styles.plugins}>
           <div className={styles.headerContainer}>
             <div>
-              <FormattedMessage id="users-permissions.Plugins.header.title" />
+              <FormattedMessage id="header.title" />
             </div>
             <div>
-              <FormattedMessage id="users-permissions.Plugins.header.description" />
+              <FormattedMessage id="header.description" />
             </div>
           </div>
           <div className={cn(styles.pluginsContainer, !has(this.props.plugins, 'application') && styles.pluginsGradient)}>

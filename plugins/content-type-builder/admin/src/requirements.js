@@ -5,7 +5,7 @@ const shouldRenderCompo = (plugin) => new Promise((resolve, reject) => {
     .then(response => {
       plugin.preventComponentRendering = !response.autoReload.enabled;
       plugin.blockerComponentProps = {
-        blockerComponentTitle: 'components.AutoReloadBlocker.header',
+        blockerComponentTitle: 'header',
         blockerComponentDescription: 'components.AutoReloadBlocker.description',
         blockerComponentIcon: 'fa-refresh',
         blockerComponentContent: 'renderIde',

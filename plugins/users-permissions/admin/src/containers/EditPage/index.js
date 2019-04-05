@@ -178,11 +178,11 @@ export class EditPage extends React.Component { // eslint-disable-line react/pre
 
   render() {
     const pluginHeaderTitle = this.props.match.params.actionType === 'create' ?
-      'users-permissions.EditPage.header.title.create'
-      : 'users-permissions.EditPage.header.title';
+      'header.title.create'
+      : 'header.title';
     const pluginHeaderDescription = this.props.match.params.actionType === 'create' ?
-      'users-permissions.EditPage.header.description.create'
-      : 'users-permissions.EditPage.header.description';
+      'header.description.create'
+      : 'header.description';
     const pluginHeaderActions = [
       {
         label: 'users-permissions.EditPage.cancel',

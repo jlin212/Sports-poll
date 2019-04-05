@@ -1,0 +1,29 @@
+{
+  "connection": "default",
+  "collectionName": "leagues",
+  "info": {
+    "name": "league",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "name": {
+      "default": "",
+      "type": "string"
+    },
+    "club": {
+      "model": "club",
+      "via": "leagues"
+    },
+    "logo": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

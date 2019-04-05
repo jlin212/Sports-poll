@@ -7,7 +7,7 @@ import { defineMessages } from 'react-intl';
 
 export default defineMessages({
   header: {
-    id: 'app.containers.ModelPage.header',
+    id: 'header',
     defaultMessage: 'This is ModelPage container !',
   },
 });
