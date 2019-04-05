@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/polls",
+      "handler": "Poll.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/polls/count",
+      "handler": "Poll.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/polls/:id",
+      "handler": "Poll.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/polls",
+      "handler": "Poll.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/polls/:id",
+      "handler": "Poll.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/polls/:id",
+      "handler": "Poll.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

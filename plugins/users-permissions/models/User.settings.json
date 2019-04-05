@@ -48,6 +48,18 @@
       "via": "users",
       "plugin": "users-permissions",
       "configurable": false
+    },
+    "nickname": {
+      "default": "",
+      "type": "string"
+    },
+    "polls": {
+      "collection": "poll",
+      "via": "user"
+    },
+    "comments": {
+      "collection": "comment",
+      "via": "user"
     }
   },
   "collectionName": "users-permissions_user"

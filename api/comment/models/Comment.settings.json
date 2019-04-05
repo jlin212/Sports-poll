@@ -1,0 +1,32 @@
+{
+  "connection": "default",
+  "collectionName": "comments",
+  "info": {
+    "name": "comment",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "body": {
+      "default": "",
+      "type": "text"
+    },
+    "views": {
+      "default": "",
+      "type": "biginteger"
+    },
+    "votes": {
+      "default": "",
+      "type": "biginteger"
+    },
+    "user": {
+      "model": "user",
+      "via": "comments",
+      "plugin": "users-permissions"
+    }
+  }
+}

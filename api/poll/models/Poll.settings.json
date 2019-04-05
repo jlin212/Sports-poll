@@ -1,0 +1,39 @@
+{
+  "connection": "default",
+  "collectionName": "polls",
+  "info": {
+    "name": "poll",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "title": {
+      "default": "",
+      "type": "string",
+      "required": true
+    },
+    "body": {
+      "default": "",
+      "type": "text"
+    },
+    "votes": {
+      "default": "",
+      "type": "biginteger"
+    },
+    "title_bg": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "user": {
+      "model": "user",
+      "via": "polls",
+      "plugin": "users-permissions"
+    }
+  }
+}
