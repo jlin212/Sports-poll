@@ -2,7 +2,7 @@
   "name": "sports_poll",
   "private": true,
   "version": "0.1.0",
-  "description": "A Strapi application.",
+  "description": "sports_poll",
   "main": "./server.js",
   "scripts": {
     "setup": "cd admin && npm run setup",
