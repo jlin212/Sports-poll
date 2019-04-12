@@ -19,6 +19,7 @@ type Comment {
   views: Int
   votes: Int
   user: UsersPermissionsUser
+  poll: Poll
 }
 
 input CommentInput {
@@ -26,6 +27,7 @@ input CommentInput {
   views: Int
   votes: Int
   user: ID
+  poll: ID
 }
 
 input createClubInput {
@@ -171,6 +173,7 @@ input editCommentInput {
   views: Int
   votes: Int
   user: ID
+  poll: ID
 }
 
 input editFileInput {
@@ -196,6 +199,7 @@ input editPageInput {
   title: String
   baner_bg: ID
   body: String
+  in_footer: Boolean
 }
 
 input editPollInput {
@@ -204,6 +208,8 @@ input editPollInput {
   votes: Int
   title_bg: ID
   user: ID
+  tags: [ID]
+  comments: [ID]
 }
 
 input editRoleInput {
@@ -216,6 +222,7 @@ input editRoleInput {
 
 input editTagInput {
   name: String
+  polls: [ID]
 }
 
 input editUserInput {
@@ -318,12 +325,14 @@ type Page {
   title: String
   baner_bg: UploadFile
   body: String
+  in_footer: Boolean
 }
 
 input PageInput {
   title: String
   baner_bg: ID
   body: String
+  in_footer: Boolean
 }
 
 type Poll {
@@ -335,6 +344,8 @@ type Poll {
   votes: Int
   title_bg: UploadFile
   user: UsersPermissionsUser
+  tags(sort: String, limit: Int, start: Int, where: JSON): [Tag]
+  comments(sort: String, limit: Int, start: Int, where: JSON): [Comment]
 }
 
 input PollInput {
@@ -343,6 +354,8 @@ input PollInput {
   votes: Int
   title_bg: ID
   user: ID
+  tags: [ID]
+  comments: [ID]
 }
 
 type Query {
@@ -383,10 +396,12 @@ type Tag {
   created_at: DateTime!
   updated_at: DateTime!
   name: String
+  polls(sort: String, limit: Int, start: Int, where: JSON): [Poll]
 }
 
 input TagInput {
   name: String
+  polls: [ID]
 }
 
 input updateClubInput {

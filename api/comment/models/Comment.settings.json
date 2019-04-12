@@ -27,6 +27,10 @@
       "model": "user",
       "via": "comments",
       "plugin": "users-permissions"
+    },
+    "poll": {
+      "model": "poll",
+      "via": "comments"
     }
   }
 }

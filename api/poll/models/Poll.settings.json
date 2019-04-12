@@ -21,7 +21,7 @@
       "type": "text"
     },
     "votes": {
-      "default": "",
+      "default": 0,
       "type": "biginteger"
     },
     "title_bg": {
@@ -34,6 +34,15 @@
       "model": "user",
       "via": "polls",
       "plugin": "users-permissions"
+    },
+    "tags": {
+      "collection": "tag",
+      "via": "polls",
+      "dominant": true
+    },
+    "comments": {
+      "collection": "comment",
+      "via": "poll"
     }
   }
 }

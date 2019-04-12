@@ -24,6 +24,10 @@
     "body": {
       "default": "",
       "type": "text"
+    },
+    "in_footer": {
+      "default": false,
+      "type": "boolean"
     }
   }
 }
