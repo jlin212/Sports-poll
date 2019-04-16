@@ -28,8 +28,8 @@
       "via": "comments",
       "plugin": "users-permissions"
     },
-    "poll": {
-      "model": "poll",
+    "opinion": {
+      "model": "opinion",
       "via": "comments"
     }
   }

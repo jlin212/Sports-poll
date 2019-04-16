@@ -1,0 +1,28 @@
+{
+  "connection": "default",
+  "collectionName": "opinions",
+  "info": {
+    "name": "opinion",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "title": {
+      "default": "",
+      "type": "string"
+    },
+    "comments": {
+      "collection": "comment",
+      "via": "opinion"
+    },
+    "user": {
+      "model": "user",
+      "via": "opinions",
+      "plugin": "users-permissions"
+    }
+  }
+}

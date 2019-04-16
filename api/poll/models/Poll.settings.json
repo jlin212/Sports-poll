@@ -39,10 +39,6 @@
       "collection": "tag",
       "via": "polls",
       "dominant": true
-    },
-    "comments": {
-      "collection": "comment",
-      "via": "poll"
     }
   }
 }
