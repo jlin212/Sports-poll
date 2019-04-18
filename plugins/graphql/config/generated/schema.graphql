@@ -215,6 +215,9 @@ input editOpinionInput {
   title: String
   comments: [ID]
   user: ID
+  poll: ID
+  body: String
+  video: ID
 }
 
 input editPageInput {
@@ -231,6 +234,7 @@ input editPollInput {
   title_bg: ID
   user: ID
   tags: [ID]
+  opinions: [ID]
 }
 
 input editRoleInput {
@@ -259,6 +263,7 @@ input editUserInput {
   polls: [ID]
   comments: [ID]
   opinions: [ID]
+  avatar: ID
 }
 
 input FileInput {
@@ -349,6 +354,9 @@ type Opinion {
   updated_at: DateTime!
   title: String
   user: UsersPermissionsUser
+  poll: Poll
+  body: String
+  video: UploadFile
   comments(sort: String, limit: Int, start: Int, where: JSON): [Comment]
 }
 
@@ -356,6 +364,9 @@ input OpinionInput {
   title: String
   comments: [ID]
   user: ID
+  poll: ID
+  body: String
+  video: ID
 }
 
 type Page {
@@ -385,6 +396,7 @@ type Poll {
   title_bg: UploadFile
   user: UsersPermissionsUser
   tags(sort: String, limit: Int, start: Int, where: JSON): [Tag]
+  opinions(sort: String, limit: Int, start: Int, where: JSON): [Opinion]
 }
 
 input PollInput {
@@ -394,6 +406,7 @@ input PollInput {
   title_bg: ID
   user: ID
   tags: [ID]
+  opinions: [ID]
 }
 
 type Query {
@@ -557,6 +570,7 @@ input UserInput {
   polls: [ID]
   comments: [ID]
   opinions: [ID]
+  avatar: ID
 }
 
 type UsersPermissionsMe {
@@ -603,6 +617,7 @@ type UsersPermissionsUser {
   blocked: Boolean
   role: UsersPermissionsRole
   nickname: String
+  avatar: UploadFile
   polls(sort: String, limit: Int, start: Int, where: JSON): [Poll]
   comments(sort: String, limit: Int, start: Int, where: JSON): [Comment]
   opinions(sort: String, limit: Int, start: Int, where: JSON): [Opinion]
