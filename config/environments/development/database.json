@@ -5,11 +5,11 @@
       "connector": "strapi-hook-bookshelf",
       "settings": {
         "client": "postgres",
-        "host": "127.0.0.1",
+        "host": "db.jaguar-team.com",
         "port": 5432,
         "database": "sports_poll",
         "username": "postgres",
-        "password": "postgres"
+        "password": "Vfuytpbz10"
       },
       "options": {}
     }
