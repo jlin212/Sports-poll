@@ -24,6 +24,10 @@
       "via": "related",
       "plugin": "upload",
       "required": false
+    },
+    "polls": {
+      "collection": "poll",
+      "via": "league"
     }
   }
 }

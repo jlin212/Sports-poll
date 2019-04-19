@@ -37,6 +37,18 @@
       "via": "related",
       "plugin": "upload",
       "required": false
+    },
+    "vote": {
+      "default": "",
+      "type": "integer"
+    },
+    "replies": {
+      "default": "",
+      "type": "integer"
+    },
+    "views": {
+      "default": "",
+      "type": "integer"
     }
   }
 }

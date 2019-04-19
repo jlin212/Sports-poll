@@ -20,6 +20,7 @@ type Comment {
   votes: Int
   user: UsersPermissionsUser
   opinion: Opinion
+  replies: Int
 }
 
 input CommentInput {
@@ -28,6 +29,7 @@ input CommentInput {
   votes: Int
   user: ID
   opinion: ID
+  replies: Int
 }
 
 input createClubInput {
@@ -190,6 +192,7 @@ input editCommentInput {
   votes: Int
   user: ID
   opinion: ID
+  replies: Int
 }
 
 input editFileInput {
@@ -209,6 +212,7 @@ input editLeagueInput {
   name: String
   club: ID
   logo: ID
+  polls: [ID]
 }
 
 input editOpinionInput {
@@ -218,6 +222,9 @@ input editOpinionInput {
   poll: ID
   body: String
   video: ID
+  vote: Int
+  replies: Int
+  views: Int
 }
 
 input editPageInput {
@@ -235,6 +242,9 @@ input editPollInput {
   user: ID
   tags: [ID]
   opinions: [ID]
+  replies: Int
+  views: Int
+  league: ID
 }
 
 input editRoleInput {
@@ -295,12 +305,14 @@ type League {
   name: String
   club: Club
   logo: UploadFile
+  polls(sort: String, limit: Int, start: Int, where: JSON): [Poll]
 }
 
 input LeagueInput {
   name: String
   club: ID
   logo: ID
+  polls: [ID]
 }
 
 union Morph = UsersPermissionsMe | UsersPermissionsMeRole | Club | createClubPayload | updateClubPayload | deleteClubPayload | Comment | createCommentPayload | updateCommentPayload | deleteCommentPayload | League | createLeaguePayload | updateLeaguePayload | deleteLeaguePayload | Opinion | createOpinionPayload | updateOpinionPayload | deleteOpinionPayload | Page | createPagePayload | updatePagePayload | deletePagePayload | Poll | createPollPayload | updatePollPayload | deletePollPayload | Tag | createTagPayload | updateTagPayload | deleteTagPayload | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload
@@ -357,6 +369,9 @@ type Opinion {
   poll: Poll
   body: String
   video: UploadFile
+  vote: Int
+  replies: Int
+  views: Int
   comments(sort: String, limit: Int, start: Int, where: JSON): [Comment]
 }
 
@@ -367,6 +382,9 @@ input OpinionInput {
   poll: ID
   body: String
   video: ID
+  vote: Int
+  replies: Int
+  views: Int
 }
 
 type Page {
@@ -395,6 +413,9 @@ type Poll {
   votes: Int
   title_bg: UploadFile
   user: UsersPermissionsUser
+  replies: Int
+  views: Int
+  league: League
   tags(sort: String, limit: Int, start: Int, where: JSON): [Tag]
   opinions(sort: String, limit: Int, start: Int, where: JSON): [Opinion]
 }
@@ -407,6 +428,9 @@ input PollInput {
   user: ID
   tags: [ID]
   opinions: [ID]
+  replies: Int
+  views: Int
+  league: ID
 }
 
 type Query {

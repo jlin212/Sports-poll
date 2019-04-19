@@ -31,6 +31,10 @@
     "opinion": {
       "model": "opinion",
       "via": "comments"
+    },
+    "replies": {
+      "default": "",
+      "type": "integer"
     }
   }
 }

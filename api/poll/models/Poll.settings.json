@@ -43,6 +43,18 @@
     "opinions": {
       "collection": "opinion",
       "via": "poll"
+    },
+    "replies": {
+      "default": "",
+      "type": "integer"
+    },
+    "views": {
+      "default": "",
+      "type": "integer"
+    },
+    "league": {
+      "model": "league",
+      "via": "polls"
     }
   }
 }
