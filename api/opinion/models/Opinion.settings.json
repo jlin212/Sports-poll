@@ -23,6 +23,32 @@
       "model": "user",
       "via": "opinions",
       "plugin": "users-permissions"
+    },
+    "poll": {
+      "model": "poll",
+      "via": "opinions"
+    },
+    "body": {
+      "default": "",
+      "type": "text"
+    },
+    "video": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "vote": {
+      "default": "",
+      "type": "integer"
+    },
+    "replies": {
+      "default": "",
+      "type": "integer"
+    },
+    "views": {
+      "default": "",
+      "type": "integer"
     }
   }
 }
