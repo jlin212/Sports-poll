@@ -55,6 +55,18 @@
     "league": {
       "model": "league",
       "via": "polls"
+    },
+    "date_start": {
+      "default": "",
+      "type": "date"
+    },
+    "date_end": {
+      "default": "",
+      "type": "date"
+    },
+    "upcoming_box": {
+      "default": false,
+      "type": "boolean"
     }
   }
 }
