@@ -245,6 +245,9 @@ input editPollInput {
   replies: Int
   views: Int
   league: ID
+  date_start: DateTime
+  date_end: DateTime
+  upcoming_box: Boolean
 }
 
 input editRoleInput {
@@ -416,6 +419,9 @@ type Poll {
   replies: Int
   views: Int
   league: League
+  date_start: DateTime
+  date_end: DateTime
+  upcoming_box: Boolean
   tags(sort: String, limit: Int, start: Int, where: JSON): [Tag]
   opinions(sort: String, limit: Int, start: Int, where: JSON): [Opinion]
 }
@@ -431,6 +437,9 @@ input PollInput {
   replies: Int
   views: Int
   league: ID
+  date_start: DateTime
+  date_end: DateTime
+  upcoming_box: Boolean
 }
 
 type Query {
