@@ -1,8 +1,8 @@
 {
   "connection": "default",
-  "collectionName": "leagues",
+  "collectionName": "commands",
   "info": {
-    "name": "league",
+    "name": "command",
     "description": ""
   },
   "options": {
@@ -15,9 +15,9 @@
       "default": "",
       "type": "string"
     },
-    "club": {
-      "model": "club",
-      "via": "leagues"
+    "description": {
+      "default": "",
+      "type": "text"
     },
     "logo": {
       "model": "file",
@@ -25,13 +25,9 @@
       "plugin": "upload",
       "required": false
     },
-    "polls": {
-      "collection": "poll",
-      "via": "league"
-    },
-    "commands": {
-      "collection": "command",
-      "via": "league"
+    "league": {
+      "model": "league",
+      "via": "commands"
     }
   }
 }
