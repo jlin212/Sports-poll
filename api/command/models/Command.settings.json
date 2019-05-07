@@ -28,6 +28,11 @@
     "league": {
       "model": "league",
       "via": "commands"
+    },
+    "users_favorites": {
+      "model": "user",
+      "via": "favorite_command",
+      "plugin": "users-permissions"
     }
   }
 }

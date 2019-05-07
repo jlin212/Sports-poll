@@ -19,6 +19,7 @@ type Command {
   description: String
   logo: UploadFile
   league: League
+  users_favorites: UsersPermissionsUser
 }
 
 input CommandInput {
@@ -26,6 +27,7 @@ input CommandInput {
   description: String
   logo: ID
   league: ID
+  users_favorites: ID
 }
 
 type Comment {
@@ -224,6 +226,7 @@ input editCommandInput {
   description: String
   logo: ID
   league: ID
+  users_favorites: ID
 }
 
 input editCommentInput {
@@ -318,6 +321,13 @@ input editUserInput {
   comments: [ID]
   opinions: [ID]
   avatar: ID
+  location: JSON
+  facebook: String
+  twitter: String
+  instagram: String
+  description: String
+  favorite_command: [ID]
+  level: Int
 }
 
 input FileInput {
@@ -661,6 +671,13 @@ input UserInput {
   comments: [ID]
   opinions: [ID]
   avatar: ID
+  location: JSON
+  facebook: String
+  twitter: String
+  instagram: String
+  description: String
+  favorite_command: [ID]
+  level: Int
 }
 
 type UsersPermissionsMe {
@@ -708,7 +725,14 @@ type UsersPermissionsUser {
   role: UsersPermissionsRole
   nickname: String
   avatar: UploadFile
+  location: JSON
+  facebook: String
+  twitter: String
+  instagram: String
+  description: String
+  level: Int
   polls(sort: String, limit: Int, start: Int, where: JSON): [Poll]
   comments(sort: String, limit: Int, start: Int, where: JSON): [Comment]
   opinions(sort: String, limit: Int, start: Int, where: JSON): [Opinion]
+  favorite_command(sort: String, limit: Int, start: Int, where: JSON): [Command]
 }
