@@ -70,6 +70,34 @@
       "via": "related",
       "plugin": "upload",
       "required": false
+    },
+    "location": {
+      "default": "",
+      "type": "json"
+    },
+    "facebook": {
+      "default": "",
+      "type": "string"
+    },
+    "twitter": {
+      "default": "",
+      "type": "string"
+    },
+    "instagram": {
+      "default": "",
+      "type": "string"
+    },
+    "description": {
+      "default": "",
+      "type": "text"
+    },
+    "favorite_command": {
+      "collection": "command",
+      "via": "users_favorites"
+    },
+    "level": {
+      "default": "",
+      "type": "integer"
     }
   },
   "collectionName": "users-permissions_user"

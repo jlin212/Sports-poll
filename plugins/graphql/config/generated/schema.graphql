@@ -11,6 +11,25 @@ input ClubInput {
   leagues: [ID]
 }
 
+type Command {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  name: String
+  description: String
+  logo: UploadFile
+  league: League
+  users_favorites: UsersPermissionsUser
+}
+
+input CommandInput {
+  name: String
+  description: String
+  logo: ID
+  league: ID
+  users_favorites: ID
+}
+
 type Comment {
   id: ID!
   created_at: DateTime!
@@ -38,6 +57,14 @@ input createClubInput {
 
 type createClubPayload {
   club: Club
+}
+
+input createCommandInput {
+  data: CommandInput
+}
+
+type createCommandPayload {
+  command: Command
 }
 
 input createCommentInput {
@@ -117,6 +144,14 @@ type deleteClubPayload {
   club: Club
 }
 
+input deleteCommandInput {
+  where: InputID
+}
+
+type deleteCommandPayload {
+  command: Command
+}
+
 input deleteCommentInput {
   where: InputID
 }
@@ -186,6 +221,14 @@ input editClubInput {
   leagues: [ID]
 }
 
+input editCommandInput {
+  name: String
+  description: String
+  logo: ID
+  league: ID
+  users_favorites: ID
+}
+
 input editCommentInput {
   body: String
   views: Int
@@ -213,6 +256,7 @@ input editLeagueInput {
   club: ID
   logo: ID
   polls: [ID]
+  commands: [ID]
 }
 
 input editOpinionInput {
@@ -277,6 +321,13 @@ input editUserInput {
   comments: [ID]
   opinions: [ID]
   avatar: ID
+  location: JSON
+  facebook: String
+  twitter: String
+  instagram: String
+  description: String
+  favorite_command: [ID]
+  level: Int
 }
 
 input FileInput {
@@ -309,6 +360,7 @@ type League {
   club: Club
   logo: UploadFile
   polls(sort: String, limit: Int, start: Int, where: JSON): [Poll]
+  commands(sort: String, limit: Int, start: Int, where: JSON): [Command]
 }
 
 input LeagueInput {
@@ -316,14 +368,18 @@ input LeagueInput {
   club: ID
   logo: ID
   polls: [ID]
+  commands: [ID]
 }
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | Club | createClubPayload | updateClubPayload | deleteClubPayload | Comment | createCommentPayload | updateCommentPayload | deleteCommentPayload | League | createLeaguePayload | updateLeaguePayload | deleteLeaguePayload | Opinion | createOpinionPayload | updateOpinionPayload | deleteOpinionPayload | Page | createPagePayload | updatePagePayload | deletePagePayload | Poll | createPollPayload | updatePollPayload | deletePollPayload | Tag | createTagPayload | updateTagPayload | deleteTagPayload | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | Club | createClubPayload | updateClubPayload | deleteClubPayload | Command | createCommandPayload | updateCommandPayload | deleteCommandPayload | Comment | createCommentPayload | updateCommentPayload | deleteCommentPayload | League | createLeaguePayload | updateLeaguePayload | deleteLeaguePayload | Opinion | createOpinionPayload | updateOpinionPayload | deleteOpinionPayload | Page | createPagePayload | updatePagePayload | deletePagePayload | Poll | createPollPayload | updatePollPayload | deletePollPayload | Tag | createTagPayload | updateTagPayload | deleteTagPayload | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload
 
 type Mutation {
   createClub(input: createClubInput): createClubPayload
   updateClub(input: updateClubInput): updateClubPayload
   deleteClub(input: deleteClubInput): deleteClubPayload
+  createCommand(input: createCommandInput): createCommandPayload
+  updateCommand(input: updateCommandInput): updateCommandPayload
+  deleteCommand(input: deleteCommandInput): deleteCommandPayload
   createComment(input: createCommentInput): createCommentPayload
   updateComment(input: updateCommentInput): updateCommentPayload
   deleteComment(input: deleteCommentInput): deleteCommentPayload
@@ -445,6 +501,8 @@ input PollInput {
 type Query {
   club(id: ID!): Club
   clubs(sort: String, limit: Int, start: Int, where: JSON): [Club]
+  command(id: ID!): Command
+  commands(sort: String, limit: Int, start: Int, where: JSON): [Command]
   comment(id: ID!): Comment
   comments(sort: String, limit: Int, start: Int, where: JSON): [Comment]
   league(id: ID!): League
@@ -497,6 +555,15 @@ input updateClubInput {
 
 type updateClubPayload {
   club: Club
+}
+
+input updateCommandInput {
+  where: InputID
+  data: editCommandInput
+}
+
+type updateCommandPayload {
+  command: Command
 }
 
 input updateCommentInput {
@@ -604,6 +671,13 @@ input UserInput {
   comments: [ID]
   opinions: [ID]
   avatar: ID
+  location: JSON
+  facebook: String
+  twitter: String
+  instagram: String
+  description: String
+  favorite_command: [ID]
+  level: Int
 }
 
 type UsersPermissionsMe {
@@ -651,7 +725,14 @@ type UsersPermissionsUser {
   role: UsersPermissionsRole
   nickname: String
   avatar: UploadFile
+  location: JSON
+  facebook: String
+  twitter: String
+  instagram: String
+  description: String
+  level: Int
   polls(sort: String, limit: Int, start: Int, where: JSON): [Poll]
   comments(sort: String, limit: Int, start: Int, where: JSON): [Comment]
   opinions(sort: String, limit: Int, start: Int, where: JSON): [Opinion]
+  favorite_command(sort: String, limit: Int, start: Int, where: JSON): [Command]
 }
