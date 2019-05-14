@@ -30,7 +30,8 @@
     },
     "body": {
       "default": "",
-      "type": "text"
+      "type": "text",
+      "maxLength": 500
     },
     "video": {
       "model": "file",
