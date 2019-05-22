@@ -98,6 +98,18 @@
     "level": {
       "default": "",
       "type": "integer"
+    },
+    "followers": {
+      "default": {
+        "ids": []
+      },
+      "type": "json"
+    },
+    "following": {
+      "default": {
+        "ids": []
+      },
+      "type": "json"
     }
   },
   "collectionName": "users-permissions_user"
