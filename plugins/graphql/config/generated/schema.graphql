@@ -269,6 +269,7 @@ input editOpinionInput {
   vote: Int
   replies: Int
   views: Int
+  votes: JSON
 }
 
 input editPageInput {
@@ -292,6 +293,7 @@ input editPollInput {
   date_start: DateTime
   date_end: DateTime
   upcoming_box: Boolean
+  voted: JSON
 }
 
 input editRoleInput {
@@ -330,6 +332,7 @@ input editUserInput {
   level: Int
   followers: JSON
   following: JSON
+  votes: JSON
 }
 
 input FileInput {
@@ -433,6 +436,7 @@ type Opinion {
   vote: Int
   replies: Int
   views: Int
+  votes: JSON
   comments(sort: String, limit: Int, start: Int, where: JSON): [Comment]
 }
 
@@ -446,6 +450,7 @@ input OpinionInput {
   vote: Int
   replies: Int
   views: Int
+  votes: JSON
 }
 
 type Page {
@@ -480,6 +485,7 @@ type Poll {
   date_start: DateTime
   date_end: DateTime
   upcoming_box: Boolean
+  voted: JSON
   tags(sort: String, limit: Int, start: Int, where: JSON): [Tag]
   opinions(sort: String, limit: Int, start: Int, where: JSON): [Opinion]
 }
@@ -498,6 +504,7 @@ input PollInput {
   date_start: DateTime
   date_end: DateTime
   upcoming_box: Boolean
+  voted: JSON
 }
 
 type Query {
@@ -682,6 +689,7 @@ input UserInput {
   level: Int
   followers: JSON
   following: JSON
+  votes: JSON
 }
 
 type UsersPermissionsMe {
@@ -737,6 +745,7 @@ type UsersPermissionsUser {
   level: Int
   followers: JSON
   following: JSON
+  votes: JSON
   polls(sort: String, limit: Int, start: Int, where: JSON): [Poll]
   comments(sort: String, limit: Int, start: Int, where: JSON): [Comment]
   opinions(sort: String, limit: Int, start: Int, where: JSON): [Opinion]
