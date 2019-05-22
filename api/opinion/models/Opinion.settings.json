@@ -50,6 +50,12 @@
     "views": {
       "default": "",
       "type": "integer"
+    },
+    "votes": {
+      "default": {
+        "ids": []
+      },
+      "type": "json"
     }
   }
 }

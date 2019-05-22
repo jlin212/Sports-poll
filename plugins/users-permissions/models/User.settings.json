@@ -110,6 +110,12 @@
         "ids": []
       },
       "type": "json"
+    },
+    "votes": {
+      "default": {
+        "ids": []
+      },
+      "type": "json"
     }
   },
   "collectionName": "users-permissions_user"
