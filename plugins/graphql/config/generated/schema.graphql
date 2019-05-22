@@ -328,6 +328,8 @@ input editUserInput {
   description: String
   favorite_command: [ID]
   level: Int
+  followers: JSON
+  following: JSON
 }
 
 input FileInput {
@@ -678,6 +680,8 @@ input UserInput {
   description: String
   favorite_command: [ID]
   level: Int
+  followers: JSON
+  following: JSON
 }
 
 type UsersPermissionsMe {
@@ -731,6 +735,8 @@ type UsersPermissionsUser {
   instagram: String
   description: String
   level: Int
+  followers: JSON
+  following: JSON
   polls(sort: String, limit: Int, start: Int, where: JSON): [Poll]
   comments(sort: String, limit: Int, start: Int, where: JSON): [Comment]
   opinions(sort: String, limit: Int, start: Int, where: JSON): [Opinion]
