@@ -112,7 +112,9 @@
       "type": "json"
     },
     "votes": {
-      "default": "",
+      "default": {
+        "ids": []
+      },
       "type": "json"
     }
   },

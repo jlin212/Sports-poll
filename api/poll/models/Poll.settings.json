@@ -70,7 +70,9 @@
       "type": "boolean"
     },
     "voted": {
-      "default": "",
+      "default": {
+        "ids": []
+      },
       "type": "json"
     }
   }

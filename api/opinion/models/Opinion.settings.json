@@ -52,7 +52,9 @@
       "type": "integer"
     },
     "votes": {
-      "default": "",
+      "default": {
+        "ids": []
+      },
       "type": "json"
     }
   }
