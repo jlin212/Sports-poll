@@ -40,16 +40,20 @@
       "required": false
     },
     "vote": {
-      "default": "",
+      "default": 0,
       "type": "integer"
     },
     "replies": {
-      "default": "",
+      "default": 0,
       "type": "integer"
     },
     "views": {
-      "default": "",
+      "default": 0,
       "type": "integer"
+    },
+    "votes": {
+      "default": "",
+      "type": "json"
     }
   }
 }
