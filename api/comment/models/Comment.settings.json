@@ -16,11 +16,11 @@
       "type": "text"
     },
     "views": {
-      "default": "",
+      "default": 0,
       "type": "biginteger"
     },
     "votes": {
-      "default": "",
+      "default": 0,
       "type": "biginteger"
     },
     "user": {
@@ -33,7 +33,7 @@
       "via": "comments"
     },
     "replies": {
-      "default": "",
+      "default": 0,
       "type": "integer"
     }
   }
