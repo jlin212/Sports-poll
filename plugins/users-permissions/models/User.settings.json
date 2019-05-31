@@ -116,6 +116,14 @@
         "ids": []
       },
       "type": "json"
+    },
+    "display_full_name": {
+      "default": true,
+      "type": "boolean"
+    },
+    "display_location": {
+      "default": true,
+      "type": "boolean"
     }
   },
   "collectionName": "users-permissions_user"

@@ -333,6 +333,8 @@ input editUserInput {
   followers: JSON
   following: JSON
   votes: JSON
+  display_full_name: Boolean
+  display_location: Boolean
 }
 
 input FileInput {
@@ -690,6 +692,8 @@ input UserInput {
   followers: JSON
   following: JSON
   votes: JSON
+  display_full_name: Boolean
+  display_location: Boolean
 }
 
 type UsersPermissionsMe {
@@ -746,6 +750,8 @@ type UsersPermissionsUser {
   followers: JSON
   following: JSON
   votes: JSON
+  display_full_name: Boolean
+  display_location: Boolean
   polls(sort: String, limit: Int, start: Int, where: JSON): [Poll]
   comments(sort: String, limit: Int, start: Int, where: JSON): [Comment]
   opinions(sort: String, limit: Int, start: Int, where: JSON): [Opinion]
