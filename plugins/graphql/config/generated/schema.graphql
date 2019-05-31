@@ -83,6 +83,14 @@ type createLeaguePayload {
   league: League
 }
 
+input createMessageInput {
+  data: MessageInput
+}
+
+type createMessagePayload {
+  message: Message
+}
+
 input createOpinionInput {
   data: OpinionInput
 }
@@ -166,6 +174,14 @@ input deleteLeagueInput {
 
 type deleteLeaguePayload {
   league: League
+}
+
+input deleteMessageInput {
+  where: InputID
+}
+
+type deleteMessagePayload {
+  message: Message
 }
 
 input deleteOpinionInput {
@@ -259,6 +275,12 @@ input editLeagueInput {
   commands: [ID]
 }
 
+input editMessageInput {
+  body: String
+  to: ID
+  from: ID
+}
+
 input editOpinionInput {
   title: String
   comments: [ID]
@@ -333,6 +355,8 @@ input editUserInput {
   followers: JSON
   following: JSON
   votes: JSON
+  to: [ID]
+  from: [ID]
 }
 
 input FileInput {
@@ -376,7 +400,22 @@ input LeagueInput {
   commands: [ID]
 }
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | Club | createClubPayload | updateClubPayload | deleteClubPayload | Command | createCommandPayload | updateCommandPayload | deleteCommandPayload | Comment | createCommentPayload | updateCommentPayload | deleteCommentPayload | League | createLeaguePayload | updateLeaguePayload | deleteLeaguePayload | Opinion | createOpinionPayload | updateOpinionPayload | deleteOpinionPayload | Page | createPagePayload | updatePagePayload | deletePagePayload | Poll | createPollPayload | updatePollPayload | deletePollPayload | Tag | createTagPayload | updateTagPayload | deleteTagPayload | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload
+type Message {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  body: String
+  to: UsersPermissionsUser
+  from: UsersPermissionsUser
+}
+
+input MessageInput {
+  body: String
+  to: ID
+  from: ID
+}
+
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | Club | createClubPayload | updateClubPayload | deleteClubPayload | Command | createCommandPayload | updateCommandPayload | deleteCommandPayload | Comment | createCommentPayload | updateCommentPayload | deleteCommentPayload | League | createLeaguePayload | updateLeaguePayload | deleteLeaguePayload | Message | createMessagePayload | updateMessagePayload | deleteMessagePayload | Opinion | createOpinionPayload | updateOpinionPayload | deleteOpinionPayload | Page | createPagePayload | updatePagePayload | deletePagePayload | Poll | createPollPayload | updatePollPayload | deletePollPayload | Tag | createTagPayload | updateTagPayload | deleteTagPayload | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload
 
 type Mutation {
   createClub(input: createClubInput): createClubPayload
@@ -391,6 +430,9 @@ type Mutation {
   createLeague(input: createLeagueInput): createLeaguePayload
   updateLeague(input: updateLeagueInput): updateLeaguePayload
   deleteLeague(input: deleteLeagueInput): deleteLeaguePayload
+  createMessage(input: createMessageInput): createMessagePayload
+  updateMessage(input: updateMessageInput): updateMessagePayload
+  deleteMessage(input: deleteMessageInput): deleteMessagePayload
   createOpinion(input: createOpinionInput): createOpinionPayload
   updateOpinion(input: updateOpinionInput): updateOpinionPayload
   deleteOpinion(input: deleteOpinionInput): deleteOpinionPayload
@@ -516,6 +558,8 @@ type Query {
   comments(sort: String, limit: Int, start: Int, where: JSON): [Comment]
   league(id: ID!): League
   leagues(sort: String, limit: Int, start: Int, where: JSON): [League]
+  message(id: ID!): Message
+  messages(sort: String, limit: Int, start: Int, where: JSON): [Message]
   opinion(id: ID!): Opinion
   opinions(sort: String, limit: Int, start: Int, where: JSON): [Opinion]
   page(id: ID!): Page
@@ -591,6 +635,15 @@ input updateLeagueInput {
 
 type updateLeaguePayload {
   league: League
+}
+
+input updateMessageInput {
+  where: InputID
+  data: editMessageInput
+}
+
+type updateMessagePayload {
+  message: Message
 }
 
 input updateOpinionInput {
@@ -690,6 +743,8 @@ input UserInput {
   followers: JSON
   following: JSON
   votes: JSON
+  to: [ID]
+  from: [ID]
 }
 
 type UsersPermissionsMe {
@@ -750,4 +805,6 @@ type UsersPermissionsUser {
   comments(sort: String, limit: Int, start: Int, where: JSON): [Comment]
   opinions(sort: String, limit: Int, start: Int, where: JSON): [Opinion]
   favorite_command(sort: String, limit: Int, start: Int, where: JSON): [Command]
+  to(sort: String, limit: Int, start: Int, where: JSON): [Message]
+  from(sort: String, limit: Int, start: Int, where: JSON): [Message]
 }

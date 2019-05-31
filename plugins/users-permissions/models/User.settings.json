@@ -116,6 +116,14 @@
         "ids": []
       },
       "type": "json"
+    },
+    "to": {
+      "collection": "message",
+      "via": "to"
+    },
+    "from": {
+      "collection": "message",
+      "via": "from"
     }
   },
   "collectionName": "users-permissions_user"

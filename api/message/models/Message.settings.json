@@ -1,0 +1,29 @@
+{
+  "connection": "default",
+  "collectionName": "messages",
+  "info": {
+    "name": "message",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "body": {
+      "default": "",
+      "type": "text"
+    },
+    "to": {
+      "model": "user",
+      "via": "to",
+      "plugin": "users-permissions"
+    },
+    "from": {
+      "model": "user",
+      "via": "from",
+      "plugin": "users-permissions"
+    }
+  }
+}
