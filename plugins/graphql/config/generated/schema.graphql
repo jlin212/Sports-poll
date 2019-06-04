@@ -279,6 +279,7 @@ input editMessageInput {
   body: String
   to: ID
   from: ID
+  read: Boolean
 }
 
 input editOpinionInput {
@@ -409,12 +410,14 @@ type Message {
   body: String
   to: UsersPermissionsUser
   from: UsersPermissionsUser
+  read: Boolean
 }
 
 input MessageInput {
   body: String
   to: ID
   from: ID
+  read: Boolean
 }
 
 union Morph = UsersPermissionsMe | UsersPermissionsMeRole | Club | createClubPayload | updateClubPayload | deleteClubPayload | Command | createCommandPayload | updateCommandPayload | deleteCommandPayload | Comment | createCommentPayload | updateCommentPayload | deleteCommentPayload | League | createLeaguePayload | updateLeaguePayload | deleteLeaguePayload | Message | createMessagePayload | updateMessagePayload | deleteMessagePayload | Opinion | createOpinionPayload | updateOpinionPayload | deleteOpinionPayload | Page | createPagePayload | updatePagePayload | deletePagePayload | Poll | createPollPayload | updatePollPayload | deletePollPayload | Tag | createTagPayload | updateTagPayload | deleteTagPayload | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload

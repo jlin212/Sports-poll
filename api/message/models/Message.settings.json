@@ -24,6 +24,10 @@
       "model": "user",
       "via": "from",
       "plugin": "users-permissions"
+    },
+    "read": {
+      "default": false,
+      "type": "boolean"
     }
   }
 }
