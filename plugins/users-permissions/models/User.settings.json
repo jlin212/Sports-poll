@@ -99,12 +99,6 @@
       "default": "",
       "type": "integer"
     },
-    "followers": {
-      "default": {
-        "ids": []
-      },
-      "type": "json"
-    },
     "following": {
       "default": {
         "ids": []

@@ -28,6 +28,14 @@
     "in_footer": {
       "default": false,
       "type": "boolean"
+    },
+    "sidebar_menu": {
+      "default": false,
+      "type": "boolean"
+    },
+    "aliase": {
+      "default": "",
+      "type": "string"
     }
   }
 }

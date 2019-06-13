@@ -68,12 +68,6 @@
     "upcoming_box": {
       "default": false,
       "type": "boolean"
-    },
-    "voted": {
-      "default": {
-        "ids": []
-      },
-      "type": "json"
     }
   }
 }

@@ -292,7 +292,6 @@ input editOpinionInput {
   vote: Int
   replies: Int
   views: Int
-  votes: JSON
 }
 
 input editPageInput {
@@ -300,6 +299,8 @@ input editPageInput {
   baner_bg: ID
   body: String
   in_footer: Boolean
+  sidebar_menu: Boolean
+  aliase: String
 }
 
 input editPollInput {
@@ -316,7 +317,6 @@ input editPollInput {
   date_start: DateTime
   date_end: DateTime
   upcoming_box: Boolean
-  voted: JSON
 }
 
 input editRoleInput {
@@ -353,7 +353,6 @@ input editUserInput {
   description: String
   favorite_command: [ID]
   level: Int
-  followers: JSON
   following: JSON
   votes: JSON
   display_full_name: Boolean
@@ -482,7 +481,6 @@ type Opinion {
   vote: Int
   replies: Int
   views: Int
-  votes: JSON
   comments(sort: String, limit: Int, start: Int, where: JSON): [Comment]
 }
 
@@ -496,7 +494,6 @@ input OpinionInput {
   vote: Int
   replies: Int
   views: Int
-  votes: JSON
 }
 
 type Page {
@@ -507,6 +504,8 @@ type Page {
   baner_bg: UploadFile
   body: String
   in_footer: Boolean
+  sidebar_menu: Boolean
+  aliase: String
 }
 
 input PageInput {
@@ -514,6 +513,8 @@ input PageInput {
   baner_bg: ID
   body: String
   in_footer: Boolean
+  sidebar_menu: Boolean
+  aliase: String
 }
 
 type Poll {
@@ -531,7 +532,6 @@ type Poll {
   date_start: DateTime
   date_end: DateTime
   upcoming_box: Boolean
-  voted: JSON
   tags(sort: String, limit: Int, start: Int, where: JSON): [Tag]
   opinions(sort: String, limit: Int, start: Int, where: JSON): [Opinion]
 }
@@ -550,7 +550,6 @@ input PollInput {
   date_start: DateTime
   date_end: DateTime
   upcoming_box: Boolean
-  voted: JSON
 }
 
 type Query {
@@ -744,7 +743,6 @@ input UserInput {
   description: String
   favorite_command: [ID]
   level: Int
-  followers: JSON
   following: JSON
   votes: JSON
   display_full_name: Boolean
@@ -803,7 +801,6 @@ type UsersPermissionsUser {
   instagram: String
   description: String
   level: Int
-  followers: JSON
   following: JSON
   votes: JSON
   display_full_name: Boolean
