@@ -11,23 +11,23 @@
     "comment": ""
   },
   "attributes": {
-    "body": {
-      "default": "",
-      "type": "text"
-    },
-    "to": {
-      "model": "user",
-      "via": "to",
-      "plugin": "users-permissions"
-    },
-    "from": {
-      "model": "user",
-      "via": "from",
-      "plugin": "users-permissions"
-    },
     "read": {
       "default": false,
       "type": "boolean"
+    },
+    "message": {
+      "default": "",
+      "type": "json"
+    },
+    "name": {
+      "default": "",
+      "type": "string"
+    },
+    "users": {
+      "collection": "user",
+      "dominant": true,
+      "via": "messages",
+      "plugin": "users-permissions"
     }
   }
 }

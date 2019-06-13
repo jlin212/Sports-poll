@@ -276,10 +276,10 @@ input editLeagueInput {
 }
 
 input editMessageInput {
-  body: String
-  to: ID
-  from: ID
   read: Boolean
+  message: JSON
+  name: String
+  users: [ID]
 }
 
 input editOpinionInput {
@@ -356,10 +356,9 @@ input editUserInput {
   followers: JSON
   following: JSON
   votes: JSON
-  to: [ID]
-  from: [ID]
   display_full_name: Boolean
   display_location: Boolean
+  messages: [ID]
 }
 
 input FileInput {
@@ -407,17 +406,17 @@ type Message {
   id: ID!
   created_at: DateTime!
   updated_at: DateTime!
-  body: String
-  to: UsersPermissionsUser
-  from: UsersPermissionsUser
   read: Boolean
+  message: JSON
+  name: String
+  users(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
 }
 
 input MessageInput {
-  body: String
-  to: ID
-  from: ID
   read: Boolean
+  message: JSON
+  name: String
+  users: [ID]
 }
 
 union Morph = UsersPermissionsMe | UsersPermissionsMeRole | Club | createClubPayload | updateClubPayload | deleteClubPayload | Command | createCommandPayload | updateCommandPayload | deleteCommandPayload | Comment | createCommentPayload | updateCommentPayload | deleteCommentPayload | League | createLeaguePayload | updateLeaguePayload | deleteLeaguePayload | Message | createMessagePayload | updateMessagePayload | deleteMessagePayload | Opinion | createOpinionPayload | updateOpinionPayload | deleteOpinionPayload | Page | createPagePayload | updatePagePayload | deletePagePayload | Poll | createPollPayload | updatePollPayload | deletePollPayload | Tag | createTagPayload | updateTagPayload | deleteTagPayload | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload
@@ -748,10 +747,9 @@ input UserInput {
   followers: JSON
   following: JSON
   votes: JSON
-  to: [ID]
-  from: [ID]
   display_full_name: Boolean
   display_location: Boolean
+  messages: [ID]
 }
 
 type UsersPermissionsMe {
@@ -814,6 +812,5 @@ type UsersPermissionsUser {
   comments(sort: String, limit: Int, start: Int, where: JSON): [Comment]
   opinions(sort: String, limit: Int, start: Int, where: JSON): [Opinion]
   favorite_command(sort: String, limit: Int, start: Int, where: JSON): [Command]
-  to(sort: String, limit: Int, start: Int, where: JSON): [Message]
-  from(sort: String, limit: Int, start: Int, where: JSON): [Message]
+  messages(sort: String, limit: Int, start: Int, where: JSON): [Message]
 }
