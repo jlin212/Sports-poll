@@ -29,13 +29,21 @@
       "default": false,
       "type": "boolean"
     },
+    "aliase": {
+      "default": "",
+      "type": "string"
+    },
     "sidebar_menu": {
       "default": false,
       "type": "boolean"
     },
-    "aliase": {
+    "list_data": {
       "default": "",
-      "type": "string"
+      "type": "json"
+    },
+    "subfooter": {
+      "default": false,
+      "type": "boolean"
     }
   }
 }

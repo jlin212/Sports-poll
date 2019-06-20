@@ -25,8 +25,8 @@
     },
     "users": {
       "collection": "user",
-      "dominant": true,
       "via": "messages",
+      "dominant": true,
       "plugin": "users-permissions"
     }
   }
