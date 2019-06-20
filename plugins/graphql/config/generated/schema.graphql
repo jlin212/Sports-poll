@@ -51,6 +51,19 @@ input CommentInput {
   replies: Int
 }
 
+type Contactus {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  email: String!
+  message: String!
+}
+
+input ContactusInput {
+  email: String!
+  message: String!
+}
+
 input createClubInput {
   data: ClubInput
 }
@@ -73,6 +86,14 @@ input createCommentInput {
 
 type createCommentPayload {
   comment: Comment
+}
+
+input createContactusInput {
+  data: ContactusInput
+}
+
+type createContactusPayload {
+  contactus: Contactus
 }
 
 input createLeagueInput {
@@ -168,6 +189,14 @@ type deleteCommentPayload {
   comment: Comment
 }
 
+input deleteContactusInput {
+  where: InputID
+}
+
+type deleteContactusPayload {
+  contactus: Contactus
+}
+
 input deleteLeagueInput {
   where: InputID
 }
@@ -254,6 +283,11 @@ input editCommentInput {
   replies: Int
 }
 
+input editContactusInput {
+  email: String
+  message: String
+}
+
 input editFileInput {
   name: String
   hash: String
@@ -276,10 +310,10 @@ input editLeagueInput {
 }
 
 input editMessageInput {
-  body: String
-  to: ID
-  from: ID
   read: Boolean
+  message: JSON
+  name: String
+  users: [ID]
 }
 
 input editOpinionInput {
@@ -300,6 +334,10 @@ input editPageInput {
   baner_bg: ID
   body: String
   in_footer: Boolean
+  aliase: String
+  sidebar_menu: Boolean
+  list_data: JSON
+  subfooter: Boolean
 }
 
 input editPollInput {
@@ -356,10 +394,9 @@ input editUserInput {
   followers: JSON
   following: JSON
   votes: JSON
-  to: [ID]
-  from: [ID]
   display_full_name: Boolean
   display_location: Boolean
+  messages: [ID]
 }
 
 input FileInput {
@@ -407,20 +444,20 @@ type Message {
   id: ID!
   created_at: DateTime!
   updated_at: DateTime!
-  body: String
-  to: UsersPermissionsUser
-  from: UsersPermissionsUser
   read: Boolean
+  message: JSON
+  name: String
+  users(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
 }
 
 input MessageInput {
-  body: String
-  to: ID
-  from: ID
   read: Boolean
+  message: JSON
+  name: String
+  users: [ID]
 }
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | Club | createClubPayload | updateClubPayload | deleteClubPayload | Command | createCommandPayload | updateCommandPayload | deleteCommandPayload | Comment | createCommentPayload | updateCommentPayload | deleteCommentPayload | League | createLeaguePayload | updateLeaguePayload | deleteLeaguePayload | Message | createMessagePayload | updateMessagePayload | deleteMessagePayload | Opinion | createOpinionPayload | updateOpinionPayload | deleteOpinionPayload | Page | createPagePayload | updatePagePayload | deletePagePayload | Poll | createPollPayload | updatePollPayload | deletePollPayload | Tag | createTagPayload | updateTagPayload | deleteTagPayload | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | Club | createClubPayload | updateClubPayload | deleteClubPayload | Command | createCommandPayload | updateCommandPayload | deleteCommandPayload | Comment | createCommentPayload | updateCommentPayload | deleteCommentPayload | Contactus | createContactusPayload | updateContactusPayload | deleteContactusPayload | League | createLeaguePayload | updateLeaguePayload | deleteLeaguePayload | Message | createMessagePayload | updateMessagePayload | deleteMessagePayload | Opinion | createOpinionPayload | updateOpinionPayload | deleteOpinionPayload | Page | createPagePayload | updatePagePayload | deletePagePayload | Poll | createPollPayload | updatePollPayload | deletePollPayload | Tag | createTagPayload | updateTagPayload | deleteTagPayload | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload
 
 type Mutation {
   createClub(input: createClubInput): createClubPayload
@@ -432,6 +469,9 @@ type Mutation {
   createComment(input: createCommentInput): createCommentPayload
   updateComment(input: updateCommentInput): updateCommentPayload
   deleteComment(input: deleteCommentInput): deleteCommentPayload
+  createContactus(input: createContactusInput): createContactusPayload
+  updateContactus(input: updateContactusInput): updateContactusPayload
+  deleteContactus(input: deleteContactusInput): deleteContactusPayload
   createLeague(input: createLeagueInput): createLeaguePayload
   updateLeague(input: updateLeagueInput): updateLeaguePayload
   deleteLeague(input: deleteLeagueInput): deleteLeaguePayload
@@ -508,6 +548,10 @@ type Page {
   baner_bg: UploadFile
   body: String
   in_footer: Boolean
+  aliase: String
+  sidebar_menu: Boolean
+  list_data: JSON
+  subfooter: Boolean
 }
 
 input PageInput {
@@ -515,6 +559,10 @@ input PageInput {
   baner_bg: ID
   body: String
   in_footer: Boolean
+  aliase: String
+  sidebar_menu: Boolean
+  list_data: JSON
+  subfooter: Boolean
 }
 
 type Poll {
@@ -561,6 +609,8 @@ type Query {
   commands(sort: String, limit: Int, start: Int, where: JSON): [Command]
   comment(id: ID!): Comment
   comments(sort: String, limit: Int, start: Int, where: JSON): [Comment]
+  contactus(id: ID!): Contactus
+  contactuses(sort: String, limit: Int, start: Int, where: JSON): [Contactus]
   league(id: ID!): League
   leagues(sort: String, limit: Int, start: Int, where: JSON): [League]
   message(id: ID!): Message
@@ -631,6 +681,15 @@ input updateCommentInput {
 
 type updateCommentPayload {
   comment: Comment
+}
+
+input updateContactusInput {
+  where: InputID
+  data: editContactusInput
+}
+
+type updateContactusPayload {
+  contactus: Contactus
 }
 
 input updateLeagueInput {
@@ -748,10 +807,9 @@ input UserInput {
   followers: JSON
   following: JSON
   votes: JSON
-  to: [ID]
-  from: [ID]
   display_full_name: Boolean
   display_location: Boolean
+  messages: [ID]
 }
 
 type UsersPermissionsMe {
@@ -814,6 +872,5 @@ type UsersPermissionsUser {
   comments(sort: String, limit: Int, start: Int, where: JSON): [Comment]
   opinions(sort: String, limit: Int, start: Int, where: JSON): [Opinion]
   favorite_command(sort: String, limit: Int, start: Int, where: JSON): [Command]
-  to(sort: String, limit: Int, start: Int, where: JSON): [Message]
-  from(sort: String, limit: Int, start: Int, where: JSON): [Message]
+  messages(sort: String, limit: Int, start: Int, where: JSON): [Message]
 }
