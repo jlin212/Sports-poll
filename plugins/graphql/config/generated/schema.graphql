@@ -3,12 +3,10 @@ type Club {
   created_at: DateTime!
   updated_at: DateTime!
   name: String
-  leagues(sort: String, limit: Int, start: Int, where: JSON): [League]
 }
 
 input ClubInput {
   name: String
-  leagues: [ID]
 }
 
 type Command {
@@ -19,7 +17,7 @@ type Command {
   description: String
   logo: UploadFile
   league: League
-  users_favorites: UsersPermissionsUser
+  users_favorites(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
 }
 
 input CommandInput {
@@ -27,7 +25,7 @@ input CommandInput {
   description: String
   logo: ID
   league: ID
-  users_favorites: ID
+  users_favorites: [ID]
 }
 
 type Comment {
@@ -263,7 +261,6 @@ type deleteUserPayload {
 
 input editClubInput {
   name: String
-  leagues: [ID]
 }
 
 input editCommandInput {
@@ -271,7 +268,7 @@ input editCommandInput {
   description: String
   logo: ID
   league: ID
-  users_favorites: ID
+  users_favorites: [ID]
 }
 
 input editCommentInput {
@@ -281,6 +278,11 @@ input editCommentInput {
   user: ID
   opinion: ID
   replies: Int
+}
+
+input editContactusInput {
+  email: String
+  message: String
 }
 
 input editFileInput {
@@ -298,7 +300,6 @@ input editFileInput {
 
 input editLeagueInput {
   name: String
-  club: ID
   logo: ID
   polls: [ID]
   commands: [ID]
@@ -321,7 +322,6 @@ input editOpinionInput {
   vote: Int
   replies: Int
   views: Int
-  votes: JSON
 }
 
 input editPageInput {
@@ -349,7 +349,6 @@ input editPollInput {
   date_start: DateTime
   date_end: DateTime
   upcoming_box: Boolean
-  voted: JSON
 }
 
 input editRoleInput {
@@ -386,13 +385,11 @@ input editUserInput {
   description: String
   favorite_command: [ID]
   level: Int
-  followers: JSON
   following: JSON
   votes: JSON
-  to: [ID]
-  from: [ID]
   display_full_name: Boolean
   display_location: Boolean
+  messages: [ID]
 }
 
 input FileInput {
@@ -422,7 +419,6 @@ type League {
   created_at: DateTime!
   updated_at: DateTime!
   name: String
-  club: Club
   logo: UploadFile
   polls(sort: String, limit: Int, start: Int, where: JSON): [Poll]
   commands(sort: String, limit: Int, start: Int, where: JSON): [Command]
@@ -430,7 +426,6 @@ type League {
 
 input LeagueInput {
   name: String
-  club: ID
   logo: ID
   polls: [ID]
   commands: [ID]
@@ -519,7 +514,6 @@ type Opinion {
   vote: Int
   replies: Int
   views: Int
-  votes: JSON
   comments(sort: String, limit: Int, start: Int, where: JSON): [Comment]
 }
 
@@ -533,7 +527,6 @@ input OpinionInput {
   vote: Int
   replies: Int
   views: Int
-  votes: JSON
 }
 
 type Page {
@@ -576,7 +569,6 @@ type Poll {
   date_start: DateTime
   date_end: DateTime
   upcoming_box: Boolean
-  voted: JSON
   tags(sort: String, limit: Int, start: Int, where: JSON): [Tag]
   opinions(sort: String, limit: Int, start: Int, where: JSON): [Opinion]
 }
@@ -595,7 +587,6 @@ input PollInput {
   date_start: DateTime
   date_end: DateTime
   upcoming_box: Boolean
-  voted: JSON
 }
 
 type Query {
@@ -677,6 +668,15 @@ input updateCommentInput {
 
 type updateCommentPayload {
   comment: Comment
+}
+
+input updateContactusInput {
+  where: InputID
+  data: editContactusInput
+}
+
+type updateContactusPayload {
+  contactus: Contactus
 }
 
 input updateLeagueInput {
@@ -791,13 +791,11 @@ input UserInput {
   description: String
   favorite_command: [ID]
   level: Int
-  followers: JSON
   following: JSON
   votes: JSON
-  to: [ID]
-  from: [ID]
   display_full_name: Boolean
   display_location: Boolean
+  messages: [ID]
 }
 
 type UsersPermissionsMe {
@@ -851,7 +849,6 @@ type UsersPermissionsUser {
   instagram: String
   description: String
   level: Int
-  followers: JSON
   following: JSON
   votes: JSON
   display_full_name: Boolean
@@ -860,6 +857,5 @@ type UsersPermissionsUser {
   comments(sort: String, limit: Int, start: Int, where: JSON): [Comment]
   opinions(sort: String, limit: Int, start: Int, where: JSON): [Opinion]
   favorite_command(sort: String, limit: Int, start: Int, where: JSON): [Command]
-  to(sort: String, limit: Int, start: Int, where: JSON): [Message]
-  from(sort: String, limit: Int, start: Int, where: JSON): [Message]
+  messages(sort: String, limit: Int, start: Int, where: JSON): [Message]
 }

@@ -92,8 +92,10 @@
       "type": "text"
     },
     "favorite_command": {
+      "unique": true,
       "collection": "command",
-      "via": "users_favorites"
+      "via": "users_favorites",
+      "dominant": true
     },
     "level": {
       "default": "",

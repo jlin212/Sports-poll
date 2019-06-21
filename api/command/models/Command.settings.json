@@ -30,7 +30,7 @@
       "via": "commands"
     },
     "users_favorites": {
-      "model": "user",
+      "collection": "user",
       "via": "favorite_command",
       "plugin": "users-permissions"
     }

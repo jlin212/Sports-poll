@@ -15,10 +15,6 @@
       "default": "",
       "type": "string"
     },
-    "club": {
-      "model": "club",
-      "via": "leagues"
-    },
     "logo": {
       "model": "file",
       "via": "related",
