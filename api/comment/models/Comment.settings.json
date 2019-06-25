@@ -16,17 +16,25 @@
       "type": "text"
     },
     "views": {
-      "default": "",
+      "default": 0,
       "type": "biginteger"
     },
     "votes": {
-      "default": "",
+      "default": 0,
       "type": "biginteger"
     },
     "user": {
       "model": "user",
       "via": "comments",
       "plugin": "users-permissions"
+    },
+    "opinion": {
+      "model": "opinion",
+      "via": "comments"
+    },
+    "replies": {
+      "default": 0,
+      "type": "integer"
     }
   }
 }

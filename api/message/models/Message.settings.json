@@ -1,0 +1,33 @@
+{
+  "connection": "default",
+  "collectionName": "messages",
+  "info": {
+    "name": "message",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "read": {
+      "default": false,
+      "type": "boolean"
+    },
+    "message": {
+      "default": "",
+      "type": "json"
+    },
+    "name": {
+      "default": "",
+      "type": "string"
+    },
+    "users": {
+      "collection": "user",
+      "dominant": true,
+      "via": "messages",
+      "plugin": "users-permissions"
+    }
+  }
+}

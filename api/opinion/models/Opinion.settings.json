@@ -1,0 +1,55 @@
+{
+  "connection": "default",
+  "collectionName": "opinions",
+  "info": {
+    "name": "opinion",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "title": {
+      "default": "",
+      "type": "string"
+    },
+    "comments": {
+      "collection": "comment",
+      "via": "opinion"
+    },
+    "user": {
+      "model": "user",
+      "via": "opinions",
+      "plugin": "users-permissions"
+    },
+    "poll": {
+      "model": "poll",
+      "via": "opinions"
+    },
+    "body": {
+      "default": "",
+      "type": "text",
+      "maxLength": 500
+    },
+    "video": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "vote": {
+      "default": 0,
+      "type": "integer"
+    },
+    "replies": {
+      "default": 0,
+      "type": "integer"
+    },
+    "views": {
+      "default": 0,
+      "type": "integer"
+    }
+  }
+}

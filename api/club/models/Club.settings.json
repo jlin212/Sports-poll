@@ -14,10 +14,6 @@
     "name": {
       "default": "",
       "type": "string"
-    },
-    "leagues": {
-      "collection": "league",
-      "via": "club"
     }
   }
 }

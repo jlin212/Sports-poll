@@ -24,6 +24,26 @@
     "body": {
       "default": "",
       "type": "text"
+    },
+    "in_footer": {
+      "default": false,
+      "type": "boolean"
+    },
+    "aliase": {
+      "default": "",
+      "type": "string"
+    },
+    "sidebar_menu": {
+      "default": false,
+      "type": "boolean"
+    },
+    "list_data": {
+      "default": "",
+      "type": "json"
+    },
+    "subfooter": {
+      "default": false,
+      "type": "boolean"
     }
   }
 }

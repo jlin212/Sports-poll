@@ -3,12 +3,29 @@ type Club {
   created_at: DateTime!
   updated_at: DateTime!
   name: String
-  leagues(sort: String, limit: Int, start: Int, where: JSON): [League]
 }
 
 input ClubInput {
   name: String
-  leagues: [ID]
+}
+
+type Command {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  name: String
+  description: String
+  logo: UploadFile
+  league: League
+  users_favorites(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
+}
+
+input CommandInput {
+  name: String
+  description: String
+  logo: ID
+  league: ID
+  users_favorites: [ID]
 }
 
 type Comment {
@@ -19,6 +36,8 @@ type Comment {
   views: Int
   votes: Int
   user: UsersPermissionsUser
+  opinion: Opinion
+  replies: Int
 }
 
 input CommentInput {
@@ -26,6 +45,21 @@ input CommentInput {
   views: Int
   votes: Int
   user: ID
+  opinion: ID
+  replies: Int
+}
+
+type Contactus {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  email: String!
+  message: String!
+}
+
+input ContactusInput {
+  email: String!
+  message: String!
 }
 
 input createClubInput {
@@ -36,6 +70,14 @@ type createClubPayload {
   club: Club
 }
 
+input createCommandInput {
+  data: CommandInput
+}
+
+type createCommandPayload {
+  command: Command
+}
+
 input createCommentInput {
   data: CommentInput
 }
@@ -44,12 +86,36 @@ type createCommentPayload {
   comment: Comment
 }
 
+input createContactusInput {
+  data: ContactusInput
+}
+
+type createContactusPayload {
+  contactus: Contactus
+}
+
 input createLeagueInput {
   data: LeagueInput
 }
 
 type createLeaguePayload {
   league: League
+}
+
+input createMessageInput {
+  data: MessageInput
+}
+
+type createMessagePayload {
+  message: Message
+}
+
+input createOpinionInput {
+  data: OpinionInput
+}
+
+type createOpinionPayload {
+  opinion: Opinion
 }
 
 input createPageInput {
@@ -105,6 +171,14 @@ type deleteClubPayload {
   club: Club
 }
 
+input deleteCommandInput {
+  where: InputID
+}
+
+type deleteCommandPayload {
+  command: Command
+}
+
 input deleteCommentInput {
   where: InputID
 }
@@ -113,12 +187,36 @@ type deleteCommentPayload {
   comment: Comment
 }
 
+input deleteContactusInput {
+  where: InputID
+}
+
+type deleteContactusPayload {
+  contactus: Contactus
+}
+
 input deleteLeagueInput {
   where: InputID
 }
 
 type deleteLeaguePayload {
   league: League
+}
+
+input deleteMessageInput {
+  where: InputID
+}
+
+type deleteMessagePayload {
+  message: Message
+}
+
+input deleteOpinionInput {
+  where: InputID
+}
+
+type deleteOpinionPayload {
+  opinion: Opinion
 }
 
 input deletePageInput {
@@ -163,7 +261,14 @@ type deleteUserPayload {
 
 input editClubInput {
   name: String
-  leagues: [ID]
+}
+
+input editCommandInput {
+  name: String
+  description: String
+  logo: ID
+  league: ID
+  users_favorites: [ID]
 }
 
 input editCommentInput {
@@ -171,6 +276,13 @@ input editCommentInput {
   views: Int
   votes: Int
   user: ID
+  opinion: ID
+  replies: Int
+}
+
+input editContactusInput {
+  email: String
+  message: String
 }
 
 input editFileInput {
@@ -188,14 +300,39 @@ input editFileInput {
 
 input editLeagueInput {
   name: String
-  club: ID
   logo: ID
+  polls: [ID]
+  commands: [ID]
+}
+
+input editMessageInput {
+  read: Boolean
+  message: JSON
+  name: String
+  users: [ID]
+}
+
+input editOpinionInput {
+  title: String
+  comments: [ID]
+  user: ID
+  poll: ID
+  body: String
+  video: ID
+  vote: Int
+  replies: Int
+  views: Int
 }
 
 input editPageInput {
   title: String
   baner_bg: ID
   body: String
+  in_footer: Boolean
+  aliase: String
+  sidebar_menu: Boolean
+  list_data: JSON
+  subfooter: Boolean
 }
 
 input editPollInput {
@@ -204,6 +341,14 @@ input editPollInput {
   votes: Int
   title_bg: ID
   user: ID
+  tags: [ID]
+  opinions: [ID]
+  replies: Int
+  views: Int
+  league: ID
+  date_start: DateTime
+  date_end: DateTime
+  upcoming_box: Boolean
 }
 
 input editRoleInput {
@@ -216,6 +361,7 @@ input editRoleInput {
 
 input editTagInput {
   name: String
+  polls: [ID]
 }
 
 input editUserInput {
@@ -230,6 +376,20 @@ input editUserInput {
   nickname: String
   polls: [ID]
   comments: [ID]
+  opinions: [ID]
+  avatar: ID
+  location: JSON
+  facebook: String
+  twitter: String
+  instagram: String
+  description: String
+  favorite_command: [ID]
+  level: Int
+  following: JSON
+  votes: JSON
+  display_full_name: Boolean
+  display_location: Boolean
+  messages: [ID]
 }
 
 input FileInput {
@@ -259,28 +419,59 @@ type League {
   created_at: DateTime!
   updated_at: DateTime!
   name: String
-  club: Club
   logo: UploadFile
+  polls(sort: String, limit: Int, start: Int, where: JSON): [Poll]
+  commands(sort: String, limit: Int, start: Int, where: JSON): [Command]
 }
 
 input LeagueInput {
   name: String
-  club: ID
   logo: ID
+  polls: [ID]
+  commands: [ID]
 }
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | Club | createClubPayload | updateClubPayload | deleteClubPayload | Comment | createCommentPayload | updateCommentPayload | deleteCommentPayload | League | createLeaguePayload | updateLeaguePayload | deleteLeaguePayload | Page | createPagePayload | updatePagePayload | deletePagePayload | Poll | createPollPayload | updatePollPayload | deletePollPayload | Tag | createTagPayload | updateTagPayload | deleteTagPayload | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload
+type Message {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  read: Boolean
+  message: JSON
+  name: String
+  users(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
+}
+
+input MessageInput {
+  read: Boolean
+  message: JSON
+  name: String
+  users: [ID]
+}
+
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | Club | createClubPayload | updateClubPayload | deleteClubPayload | Command | createCommandPayload | updateCommandPayload | deleteCommandPayload | Comment | createCommentPayload | updateCommentPayload | deleteCommentPayload | Contactus | createContactusPayload | updateContactusPayload | deleteContactusPayload | League | createLeaguePayload | updateLeaguePayload | deleteLeaguePayload | Message | createMessagePayload | updateMessagePayload | deleteMessagePayload | Opinion | createOpinionPayload | updateOpinionPayload | deleteOpinionPayload | Page | createPagePayload | updatePagePayload | deletePagePayload | Poll | createPollPayload | updatePollPayload | deletePollPayload | Tag | createTagPayload | updateTagPayload | deleteTagPayload | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload
 
 type Mutation {
   createClub(input: createClubInput): createClubPayload
   updateClub(input: updateClubInput): updateClubPayload
   deleteClub(input: deleteClubInput): deleteClubPayload
+  createCommand(input: createCommandInput): createCommandPayload
+  updateCommand(input: updateCommandInput): updateCommandPayload
+  deleteCommand(input: deleteCommandInput): deleteCommandPayload
   createComment(input: createCommentInput): createCommentPayload
   updateComment(input: updateCommentInput): updateCommentPayload
   deleteComment(input: deleteCommentInput): deleteCommentPayload
+  createContactus(input: createContactusInput): createContactusPayload
+  updateContactus(input: updateContactusInput): updateContactusPayload
+  deleteContactus(input: deleteContactusInput): deleteContactusPayload
   createLeague(input: createLeagueInput): createLeaguePayload
   updateLeague(input: updateLeagueInput): updateLeaguePayload
   deleteLeague(input: deleteLeagueInput): deleteLeaguePayload
+  createMessage(input: createMessageInput): createMessagePayload
+  updateMessage(input: updateMessageInput): updateMessagePayload
+  deleteMessage(input: deleteMessageInput): deleteMessagePayload
+  createOpinion(input: createOpinionInput): createOpinionPayload
+  updateOpinion(input: updateOpinionInput): updateOpinionPayload
+  deleteOpinion(input: deleteOpinionInput): deleteOpinionPayload
   createPage(input: createPageInput): createPagePayload
   updatePage(input: updatePageInput): updatePagePayload
   deletePage(input: deletePageInput): deletePagePayload
@@ -311,6 +502,33 @@ type Mutation {
   upload(refId: ID, ref: String, source: String, file: Upload!): UploadFile!
 }
 
+type Opinion {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  title: String
+  user: UsersPermissionsUser
+  poll: Poll
+  body: String
+  video: UploadFile
+  vote: Int
+  replies: Int
+  views: Int
+  comments(sort: String, limit: Int, start: Int, where: JSON): [Comment]
+}
+
+input OpinionInput {
+  title: String
+  comments: [ID]
+  user: ID
+  poll: ID
+  body: String
+  video: ID
+  vote: Int
+  replies: Int
+  views: Int
+}
+
 type Page {
   id: ID!
   created_at: DateTime!
@@ -318,12 +536,22 @@ type Page {
   title: String
   baner_bg: UploadFile
   body: String
+  in_footer: Boolean
+  aliase: String
+  sidebar_menu: Boolean
+  list_data: JSON
+  subfooter: Boolean
 }
 
 input PageInput {
   title: String
   baner_bg: ID
   body: String
+  in_footer: Boolean
+  aliase: String
+  sidebar_menu: Boolean
+  list_data: JSON
+  subfooter: Boolean
 }
 
 type Poll {
@@ -335,6 +563,14 @@ type Poll {
   votes: Int
   title_bg: UploadFile
   user: UsersPermissionsUser
+  replies: Int
+  views: Int
+  league: League
+  date_start: DateTime
+  date_end: DateTime
+  upcoming_box: Boolean
+  tags(sort: String, limit: Int, start: Int, where: JSON): [Tag]
+  opinions(sort: String, limit: Int, start: Int, where: JSON): [Opinion]
 }
 
 input PollInput {
@@ -343,15 +579,31 @@ input PollInput {
   votes: Int
   title_bg: ID
   user: ID
+  tags: [ID]
+  opinions: [ID]
+  replies: Int
+  views: Int
+  league: ID
+  date_start: DateTime
+  date_end: DateTime
+  upcoming_box: Boolean
 }
 
 type Query {
   club(id: ID!): Club
   clubs(sort: String, limit: Int, start: Int, where: JSON): [Club]
+  command(id: ID!): Command
+  commands(sort: String, limit: Int, start: Int, where: JSON): [Command]
   comment(id: ID!): Comment
   comments(sort: String, limit: Int, start: Int, where: JSON): [Comment]
+  contactus(id: ID!): Contactus
+  contactuses(sort: String, limit: Int, start: Int, where: JSON): [Contactus]
   league(id: ID!): League
   leagues(sort: String, limit: Int, start: Int, where: JSON): [League]
+  message(id: ID!): Message
+  messages(sort: String, limit: Int, start: Int, where: JSON): [Message]
+  opinion(id: ID!): Opinion
+  opinions(sort: String, limit: Int, start: Int, where: JSON): [Opinion]
   page(id: ID!): Page
   pages(sort: String, limit: Int, start: Int, where: JSON): [Page]
   poll(id: ID!): Poll
@@ -383,10 +635,12 @@ type Tag {
   created_at: DateTime!
   updated_at: DateTime!
   name: String
+  polls(sort: String, limit: Int, start: Int, where: JSON): [Poll]
 }
 
 input TagInput {
   name: String
+  polls: [ID]
 }
 
 input updateClubInput {
@@ -398,6 +652,15 @@ type updateClubPayload {
   club: Club
 }
 
+input updateCommandInput {
+  where: InputID
+  data: editCommandInput
+}
+
+type updateCommandPayload {
+  command: Command
+}
+
 input updateCommentInput {
   where: InputID
   data: editCommentInput
@@ -407,6 +670,15 @@ type updateCommentPayload {
   comment: Comment
 }
 
+input updateContactusInput {
+  where: InputID
+  data: editContactusInput
+}
+
+type updateContactusPayload {
+  contactus: Contactus
+}
+
 input updateLeagueInput {
   where: InputID
   data: editLeagueInput
@@ -414,6 +686,24 @@ input updateLeagueInput {
 
 type updateLeaguePayload {
   league: League
+}
+
+input updateMessageInput {
+  where: InputID
+  data: editMessageInput
+}
+
+type updateMessagePayload {
+  message: Message
+}
+
+input updateOpinionInput {
+  where: InputID
+  data: editOpinionInput
+}
+
+type updateOpinionPayload {
+  opinion: Opinion
 }
 
 input updatePageInput {
@@ -492,6 +782,20 @@ input UserInput {
   nickname: String
   polls: [ID]
   comments: [ID]
+  opinions: [ID]
+  avatar: ID
+  location: JSON
+  facebook: String
+  twitter: String
+  instagram: String
+  description: String
+  favorite_command: [ID]
+  level: Int
+  following: JSON
+  votes: JSON
+  display_full_name: Boolean
+  display_location: Boolean
+  messages: [ID]
 }
 
 type UsersPermissionsMe {
@@ -538,6 +842,20 @@ type UsersPermissionsUser {
   blocked: Boolean
   role: UsersPermissionsRole
   nickname: String
+  avatar: UploadFile
+  location: JSON
+  facebook: String
+  twitter: String
+  instagram: String
+  description: String
+  level: Int
+  following: JSON
+  votes: JSON
+  display_full_name: Boolean
+  display_location: Boolean
   polls(sort: String, limit: Int, start: Int, where: JSON): [Poll]
   comments(sort: String, limit: Int, start: Int, where: JSON): [Comment]
+  opinions(sort: String, limit: Int, start: Int, where: JSON): [Opinion]
+  favorite_command(sort: String, limit: Int, start: Int, where: JSON): [Command]
+  messages(sort: String, limit: Int, start: Int, where: JSON): [Message]
 }

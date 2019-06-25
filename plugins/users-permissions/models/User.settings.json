@@ -60,6 +60,70 @@
     "comments": {
       "collection": "comment",
       "via": "user"
+    },
+    "opinions": {
+      "collection": "opinion",
+      "via": "user"
+    },
+    "avatar": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "location": {
+      "default": "",
+      "type": "json"
+    },
+    "facebook": {
+      "default": "",
+      "type": "string"
+    },
+    "twitter": {
+      "default": "",
+      "type": "string"
+    },
+    "instagram": {
+      "default": "",
+      "type": "string"
+    },
+    "description": {
+      "default": "",
+      "type": "text"
+    },
+    "favorite_command": {
+      "unique": true,
+      "collection": "command",
+      "via": "users_favorites",
+      "dominant": true
+    },
+    "level": {
+      "default": "",
+      "type": "integer"
+    },
+    "following": {
+      "default": {
+        "ids": []
+      },
+      "type": "json"
+    },
+    "votes": {
+      "default": {
+        "ids": []
+      },
+      "type": "json"
+    },
+    "display_full_name": {
+      "default": true,
+      "type": "boolean"
+    },
+    "display_location": {
+      "default": true,
+      "type": "boolean"
+    },
+    "messages": {
+      "collection": "message",
+      "via": "users"
     }
   },
   "collectionName": "users-permissions_user"

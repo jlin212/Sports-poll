@@ -1,0 +1,38 @@
+{
+  "connection": "default",
+  "collectionName": "commands",
+  "info": {
+    "name": "command",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "name": {
+      "default": "",
+      "type": "string"
+    },
+    "description": {
+      "default": "",
+      "type": "text"
+    },
+    "logo": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "league": {
+      "model": "league",
+      "via": "commands"
+    },
+    "users_favorites": {
+      "collection": "user",
+      "via": "favorite_command",
+      "plugin": "users-permissions"
+    }
+  }
+}

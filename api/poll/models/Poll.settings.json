@@ -18,10 +18,11 @@
     },
     "body": {
       "default": "",
-      "type": "text"
+      "type": "text",
+      "maxLength": 1500
     },
     "votes": {
-      "default": "",
+      "default": 0,
       "type": "biginteger"
     },
     "title_bg": {
@@ -34,6 +35,39 @@
       "model": "user",
       "via": "polls",
       "plugin": "users-permissions"
+    },
+    "tags": {
+      "collection": "tag",
+      "via": "polls",
+      "dominant": true
+    },
+    "opinions": {
+      "collection": "opinion",
+      "via": "poll"
+    },
+    "replies": {
+      "default": "",
+      "type": "integer"
+    },
+    "views": {
+      "default": "",
+      "type": "integer"
+    },
+    "league": {
+      "model": "league",
+      "via": "polls"
+    },
+    "date_start": {
+      "default": "",
+      "type": "date"
+    },
+    "date_end": {
+      "default": "",
+      "type": "date"
+    },
+    "upcoming_box": {
+      "default": false,
+      "type": "boolean"
     }
   }
 }
