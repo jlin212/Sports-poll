@@ -28,13 +28,13 @@
       "via": "comments",
       "plugin": "users-permissions"
     },
-    "opinion": {
-      "model": "opinion",
-      "via": "comments"
-    },
     "replies": {
       "default": 0,
       "type": "integer"
+    },
+    "opinion": {
+      "model": "opinion",
+      "via": "comments"
     }
   }
 }

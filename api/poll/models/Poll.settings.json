@@ -41,10 +41,6 @@
       "via": "polls",
       "dominant": true
     },
-    "opinions": {
-      "collection": "opinion",
-      "via": "poll"
-    },
     "replies": {
       "default": "",
       "type": "integer"
@@ -68,6 +64,10 @@
     "upcoming_box": {
       "default": false,
       "type": "boolean"
+    },
+    "opinions": {
+      "collection": "opinion",
+      "via": "poll"
     }
   }
 }
