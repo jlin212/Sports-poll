@@ -7,7 +7,10 @@
   },
   "options": {
     "increments": true,
-    "timestamps": true,
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
     "comment": ""
   },
   "attributes": {
@@ -28,8 +31,7 @@
     "title_bg": {
       "model": "file",
       "via": "related",
-      "plugin": "upload",
-      "required": false
+      "plugin": "upload"
     },
     "user": {
       "model": "user",
@@ -62,12 +64,14 @@
       "type": "date"
     },
     "upcoming_box": {
-      "default": false,
       "type": "boolean"
     },
     "opinions": {
       "collection": "opinion",
       "via": "poll"
+    },
+    "answer_choices": {
+      "type": "json"
     }
   }
 }

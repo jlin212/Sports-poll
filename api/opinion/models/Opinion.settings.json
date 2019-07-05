@@ -27,10 +27,6 @@
       "via": "opinions",
       "plugin": "users-permissions"
     },
-    "poll": {
-      "model": "poll",
-      "via": "opinions"
-    },
     "body": {
       "default": "",
       "type": "text",
@@ -52,6 +48,10 @@
     "views": {
       "default": 0,
       "type": "integer"
+    },
+    "poll": {
+      "model": "poll",
+      "via": "opinions"
     }
   }
 }

@@ -53,10 +53,6 @@
       "default": "",
       "type": "string"
     },
-    "polls": {
-      "collection": "poll",
-      "via": "user"
-    },
     "comments": {
       "collection": "comment",
       "via": "user"
@@ -68,7 +64,7 @@
       "required": false
     },
     "location": {
-      "default": "",
+      "default": "{}",
       "type": "json"
     },
     "facebook": {
@@ -123,6 +119,10 @@
     },
     "opinions": {
       "collection": "opinion",
+      "via": "user"
+    },
+    "polls": {
+      "collection": "poll",
       "via": "user"
     }
   },
