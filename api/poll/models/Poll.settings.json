@@ -66,12 +66,13 @@
     "upcoming_box": {
       "type": "boolean"
     },
+    "answer_choices": {
+      "type": "json",
+      "default": "{}"
+    },
     "opinions": {
       "collection": "opinion",
       "via": "poll"
-    },
-    "answer_choices": {
-      "type": "json"
     }
   }
 }

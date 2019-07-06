@@ -52,6 +52,10 @@
     "poll": {
       "model": "poll",
       "via": "opinions"
+    },
+    "selected_answer": {
+      "type": "json",
+      "default": "{}"
     }
   }
 }

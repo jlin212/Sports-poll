@@ -117,12 +117,12 @@
       "collection": "message",
       "via": "users"
     },
-    "opinions": {
-      "collection": "opinion",
-      "via": "user"
-    },
     "polls": {
       "collection": "poll",
+      "via": "user"
+    },
+    "opinions": {
+      "collection": "opinion",
       "via": "user"
     }
   },
