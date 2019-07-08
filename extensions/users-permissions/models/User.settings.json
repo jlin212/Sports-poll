@@ -121,9 +121,17 @@
       "collection": "poll",
       "via": "user"
     },
+    "voting_polls": {
+      "collection": "poll",
+      "via": "voting_users"
+    },
     "opinions": {
       "collection": "opinion",
       "via": "user"
+    },
+    "vote_opinions": {
+      "collection": "opinion",
+      "via": "vote_users"
     }
   },
   "collectionName": "users-permissions_user"

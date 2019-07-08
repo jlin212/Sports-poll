@@ -70,6 +70,12 @@
       "type": "json",
       "default": "{}"
     },
+    "voting_users": {
+      "collection": "user",
+      "via": "voting_polls",
+      "dominant": true,
+      "plugin": "users-permissions"
+    },
     "opinions": {
       "collection": "opinion",
       "via": "poll"
