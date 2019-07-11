@@ -44,11 +44,11 @@
       "dominant": true
     },
     "replies": {
-      "default": "",
+      "default": 0,
       "type": "integer"
     },
     "views": {
-      "default": "",
+      "default": 0,
       "type": "integer"
     },
     "league": {
