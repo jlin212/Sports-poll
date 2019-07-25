@@ -1,8 +1,12 @@
 {
   "connection": "default",
+  "collectionName": "users-permissions_user",
   "info": {
     "name": "user",
     "description": ""
+  },
+  "options": {
+    "timestamps": false
   },
   "attributes": {
     "username": {
@@ -51,17 +55,13 @@
     },
     "nickname": {
       "default": "",
-      "type": "string"
-    },
-    "comments": {
-      "collection": "comment",
-      "via": "user"
+      "type": "string",
+      "unique": true
     },
     "avatar": {
       "model": "file",
       "via": "related",
-      "plugin": "upload",
-      "required": false
+      "plugin": "upload"
     },
     "location": {
       "default": "{}",
@@ -132,7 +132,10 @@
     "vote_opinions": {
       "collection": "opinion",
       "via": "vote_users"
+    },
+    "comments": {
+      "collection": "comment",
+      "via": "user"
     }
-  },
-  "collectionName": "users-permissions_user"
+  }
 }

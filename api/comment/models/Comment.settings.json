@@ -7,7 +7,10 @@
   },
   "options": {
     "increments": true,
-    "timestamps": true,
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
     "comment": ""
   },
   "attributes": {
@@ -23,11 +26,6 @@
       "default": 0,
       "type": "biginteger"
     },
-    "user": {
-      "model": "user",
-      "via": "comments",
-      "plugin": "users-permissions"
-    },
     "replies": {
       "default": 0,
       "type": "integer"
@@ -35,6 +33,16 @@
     "opinion": {
       "model": "opinion",
       "via": "comments"
+    },
+    "video": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "user": {
+      "model": "user",
+      "via": "comments",
+      "plugin": "users-permissions"
     }
   }
 }

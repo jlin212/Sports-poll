@@ -18,15 +18,6 @@
       "default": "",
       "type": "string"
     },
-    "comments": {
-      "collection": "comment",
-      "via": "opinion"
-    },
-    "user": {
-      "model": "user",
-      "via": "opinions",
-      "plugin": "users-permissions"
-    },
     "body": {
       "default": "",
       "type": "text",
@@ -57,10 +48,19 @@
       "model": "poll",
       "via": "opinions"
     },
+    "comments": {
+      "collection": "comment",
+      "via": "opinion"
+    },
+    "user": {
+      "model": "user",
+      "via": "opinions",
+      "plugin": "users-permissions"
+    },
     "vote_users": {
       "collection": "user",
-      "via": "vote_opinions",
       "dominant": true,
+      "via": "vote_opinions",
       "plugin": "users-permissions"
     }
   }

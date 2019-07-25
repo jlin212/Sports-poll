@@ -33,11 +33,6 @@
       "via": "related",
       "plugin": "upload"
     },
-    "user": {
-      "model": "user",
-      "via": "polls",
-      "plugin": "users-permissions"
-    },
     "tags": {
       "collection": "tag",
       "via": "polls",
@@ -70,15 +65,20 @@
       "type": "json",
       "default": "{}"
     },
-    "voting_users": {
-      "collection": "user",
-      "via": "voting_polls",
-      "dominant": true,
-      "plugin": "users-permissions"
-    },
     "opinions": {
       "collection": "opinion",
       "via": "poll"
+    },
+    "user": {
+      "model": "user",
+      "via": "polls",
+      "plugin": "users-permissions"
+    },
+    "voting_users": {
+      "collection": "user",
+      "dominant": true,
+      "via": "voting_polls",
+      "plugin": "users-permissions"
     }
   }
 }
