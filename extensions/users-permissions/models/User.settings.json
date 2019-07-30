@@ -136,6 +136,9 @@
     "comments": {
       "collection": "comment",
       "via": "user"
+    },
+    "day_of_birthday": {
+      "type": "date"
     }
   }
 }
