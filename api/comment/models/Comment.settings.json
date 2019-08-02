@@ -57,6 +57,10 @@
       "via": "vote_comments",
       "dominant": true,
       "plugin": "users-permissions"
+    },
+    "report": {
+      "model": "report",
+      "via": "comment"
     }
   }
 }
