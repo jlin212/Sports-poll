@@ -143,6 +143,14 @@
     "vote_comments": {
       "collection": "comment",
       "via": "vote_users"
+    },
+    "notifications_user": {
+      "collection": "notifications",
+      "via": "user_notifications"
+    },
+    "notifications_from_user": {
+      "collection": "notifications",
+      "via": "from_user"
     }
   }
 }
