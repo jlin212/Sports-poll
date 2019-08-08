@@ -7,12 +7,14 @@
   },
   "options": {
     "increments": true,
-    "timestamps": true,
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
     "comment": ""
   },
   "attributes": {
     "read": {
-      "default": false,
       "type": "boolean"
     },
     "message": {
@@ -25,8 +27,18 @@
     },
     "users": {
       "collection": "user",
-      "dominant": true,
       "via": "messages",
+      "dominant": true,
+      "plugin": "users-permissions"
+    },
+    "from_user": {
+      "model": "user",
+      "via": "from_messages",
+      "plugin": "users-permissions"
+    },
+    "to_user": {
+      "model": "user",
+      "via": "to_messages",
       "plugin": "users-permissions"
     }
   }
