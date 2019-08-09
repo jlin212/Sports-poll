@@ -113,10 +113,6 @@
       "default": true,
       "type": "boolean"
     },
-    "messages": {
-      "collection": "message",
-      "via": "users"
-    },
     "polls": {
       "collection": "poll",
       "via": "user"
@@ -151,6 +147,18 @@
     "notifications_from_user": {
       "collection": "notifications",
       "via": "from_user"
+    },
+    "messages": {
+      "collection": "message",
+      "via": "users"
+    },
+    "from_messages": {
+      "collection": "message",
+      "via": "from_user"
+    },
+    "to_messages": {
+      "collection": "message",
+      "via": "to_user"
     }
   }
 }
