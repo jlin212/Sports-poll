@@ -159,6 +159,11 @@
     "to_messages": {
       "collection": "message",
       "via": "to_user"
+    },
+    "display_leagues": {
+      "collection": "league",
+      "via": "users_league_display",
+      "dominant": true
     }
   }
 }

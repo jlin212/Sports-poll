@@ -39,11 +39,6 @@
       "via": "related",
       "plugin": "upload"
     },
-    "user": {
-      "model": "user",
-      "via": "comments",
-      "plugin": "users-permissions"
-    },
     "comments": {
       "collection": "comment",
       "via": "comment"
@@ -52,15 +47,20 @@
       "model": "comment",
       "via": "comments"
     },
-    "vote_users": {
-      "collection": "user",
-      "via": "vote_comments",
-      "dominant": true,
-      "plugin": "users-permissions"
-    },
     "report": {
       "model": "report",
       "via": "comment"
+    },
+    "user": {
+      "model": "user",
+      "via": "comments",
+      "plugin": "users-permissions"
+    },
+    "vote_users": {
+      "collection": "user",
+      "dominant": true,
+      "via": "vote_comments",
+      "plugin": "users-permissions"
     }
   }
 }
