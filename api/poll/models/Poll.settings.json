@@ -25,13 +25,14 @@
       "maxLength": 1500
     },
     "votes": {
-      "default": 0,
+      "default": "0",
       "type": "biginteger"
     },
     "title_bg": {
       "model": "file",
       "via": "related",
-      "plugin": "upload"
+      "plugin": "upload",
+      "required": true
     },
     "tags": {
       "collection": "tag",
@@ -39,16 +40,12 @@
       "dominant": true
     },
     "replies": {
-      "default": 0,
+      "default": "0",
       "type": "integer"
     },
     "views": {
-      "default": 0,
+      "default": "0",
       "type": "integer"
-    },
-    "league": {
-      "model": "league",
-      "via": "polls"
     },
     "date_start": {
       "default": "",
@@ -76,9 +73,13 @@
     },
     "voting_users": {
       "collection": "user",
-      "dominant": true,
       "via": "voting_polls",
+      "dominant": true,
       "plugin": "users-permissions"
+    },
+    "league": {
+      "model": "league",
+      "via": "polls"
     }
   }
 }

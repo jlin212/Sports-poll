@@ -7,7 +7,10 @@
   },
   "options": {
     "increments": true,
-    "timestamps": true,
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
     "comment": ""
   },
   "attributes": {
@@ -18,21 +21,22 @@
     "logo": {
       "model": "file",
       "via": "related",
-      "plugin": "upload",
-      "required": false
+      "plugin": "upload"
     },
     "commands": {
+      "unique": true,
       "collection": "command",
       "via": "league"
+    },
+    "users_league_display": {
+      "unique": true,
+      "collection": "user",
+      "via": "display_leagues",
+      "plugin": "users-permissions"
     },
     "polls": {
       "collection": "poll",
       "via": "league"
-    },
-    "users_league_display": {
-      "collection": "user",
-      "via": "display_leagues",
-      "plugin": "users-permissions"
     }
   }
 }
