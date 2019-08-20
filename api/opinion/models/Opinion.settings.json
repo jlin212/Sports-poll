@@ -44,10 +44,6 @@
       "type": "json",
       "default": "{}"
     },
-    "poll": {
-      "model": "poll",
-      "via": "opinions"
-    },
     "comments": {
       "collection": "comment",
       "via": "opinion"
@@ -62,6 +58,10 @@
       "dominant": true,
       "via": "vote_opinions",
       "plugin": "users-permissions"
+    },
+    "poll": {
+      "model": "poll",
+      "via": "opinions"
     }
   }
 }

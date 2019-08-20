@@ -90,7 +90,7 @@
       "dominant": true
     },
     "level": {
-      "default": "",
+      "default": "0",
       "type": "integer"
     },
     "following": {
@@ -112,14 +112,6 @@
     "display_location": {
       "default": true,
       "type": "boolean"
-    },
-    "polls": {
-      "collection": "poll",
-      "via": "user"
-    },
-    "voting_polls": {
-      "collection": "poll",
-      "via": "voting_users"
     },
     "opinions": {
       "collection": "opinion",
@@ -162,8 +154,16 @@
     },
     "display_leagues": {
       "collection": "league",
-      "via": "users_league_display",
-      "dominant": true
+      "dominant": true,
+      "via": "users_league_display"
+    },
+    "polls": {
+      "collection": "poll",
+      "via": "user"
+    },
+    "voting_polls": {
+      "collection": "poll",
+      "via": "voting_users"
     }
   }
 }
