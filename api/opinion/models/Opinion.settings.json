@@ -7,26 +7,16 @@
   },
   "options": {
     "increments": true,
-    "timestamps": true,
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
     "comment": ""
   },
   "attributes": {
     "title": {
       "default": "",
       "type": "string"
-    },
-    "comments": {
-      "collection": "comment",
-      "via": "opinion"
-    },
-    "user": {
-      "model": "user",
-      "via": "opinions",
-      "plugin": "users-permissions"
-    },
-    "poll": {
-      "model": "poll",
-      "via": "opinions"
     },
     "body": {
       "default": "",
@@ -36,8 +26,7 @@
     "video": {
       "model": "file",
       "via": "related",
-      "plugin": "upload",
-      "required": false
+      "plugin": "upload"
     },
     "vote": {
       "default": 0,
@@ -50,6 +39,29 @@
     "views": {
       "default": 0,
       "type": "integer"
+    },
+    "selected_answer": {
+      "type": "json",
+      "default": "{}"
+    },
+    "comments": {
+      "collection": "comment",
+      "via": "opinion"
+    },
+    "user": {
+      "model": "user",
+      "via": "opinions",
+      "plugin": "users-permissions"
+    },
+    "vote_users": {
+      "collection": "user",
+      "dominant": true,
+      "via": "vote_opinions",
+      "plugin": "users-permissions"
+    },
+    "poll": {
+      "model": "poll",
+      "via": "opinions"
     }
   }
 }

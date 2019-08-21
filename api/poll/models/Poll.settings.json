@@ -7,7 +7,10 @@
   },
   "options": {
     "increments": true,
-    "timestamps": true,
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
     "comment": ""
   },
   "attributes": {
@@ -22,40 +25,27 @@
       "maxLength": 1500
     },
     "votes": {
-      "default": 0,
+      "default": "0",
       "type": "biginteger"
     },
     "title_bg": {
       "model": "file",
       "via": "related",
       "plugin": "upload",
-      "required": false
-    },
-    "user": {
-      "model": "user",
-      "via": "polls",
-      "plugin": "users-permissions"
+      "required": true
     },
     "tags": {
       "collection": "tag",
       "via": "polls",
       "dominant": true
     },
-    "opinions": {
-      "collection": "opinion",
-      "via": "poll"
-    },
     "replies": {
-      "default": "",
+      "default": "0",
       "type": "integer"
     },
     "views": {
-      "default": "",
+      "default": "0",
       "type": "integer"
-    },
-    "league": {
-      "model": "league",
-      "via": "polls"
     },
     "date_start": {
       "default": "",
@@ -66,8 +56,30 @@
       "type": "date"
     },
     "upcoming_box": {
-      "default": false,
       "type": "boolean"
+    },
+    "answer_choices": {
+      "type": "json",
+      "default": "{}"
+    },
+    "opinions": {
+      "collection": "opinion",
+      "via": "poll"
+    },
+    "user": {
+      "model": "user",
+      "via": "polls",
+      "plugin": "users-permissions"
+    },
+    "voting_users": {
+      "collection": "user",
+      "via": "voting_polls",
+      "dominant": true,
+      "plugin": "users-permissions"
+    },
+    "league": {
+      "model": "league",
+      "via": "polls"
     }
   }
 }

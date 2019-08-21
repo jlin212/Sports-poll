@@ -1,8 +1,12 @@
 {
   "connection": "default",
+  "collectionName": "users-permissions_user",
   "info": {
     "name": "user",
     "description": ""
+  },
+  "options": {
+    "timestamps": false
   },
   "attributes": {
     "username": {
@@ -51,28 +55,16 @@
     },
     "nickname": {
       "default": "",
-      "type": "string"
-    },
-    "polls": {
-      "collection": "poll",
-      "via": "user"
-    },
-    "comments": {
-      "collection": "comment",
-      "via": "user"
-    },
-    "opinions": {
-      "collection": "opinion",
-      "via": "user"
+      "type": "string",
+      "unique": true
     },
     "avatar": {
       "model": "file",
       "via": "related",
-      "plugin": "upload",
-      "required": false
+      "plugin": "upload"
     },
     "location": {
-      "default": "",
+      "default": "{}",
       "type": "json"
     },
     "facebook": {
@@ -98,7 +90,7 @@
       "dominant": true
     },
     "level": {
-      "default": "",
+      "default": "0",
       "type": "integer"
     },
     "following": {
@@ -121,10 +113,57 @@
       "default": true,
       "type": "boolean"
     },
+    "opinions": {
+      "collection": "opinion",
+      "via": "user"
+    },
+    "vote_opinions": {
+      "collection": "opinion",
+      "via": "vote_users"
+    },
+    "day_of_birthday": {
+      "type": "date"
+    },
+    "comments": {
+      "collection": "comment",
+      "via": "user"
+    },
+    "vote_comments": {
+      "collection": "comment",
+      "via": "vote_users"
+    },
+    "notifications_user": {
+      "collection": "notifications",
+      "via": "user_notifications"
+    },
+    "notifications_from_user": {
+      "collection": "notifications",
+      "via": "from_user"
+    },
     "messages": {
       "collection": "message",
       "via": "users"
+    },
+    "from_messages": {
+      "collection": "message",
+      "via": "from_user"
+    },
+    "to_messages": {
+      "collection": "message",
+      "via": "to_user"
+    },
+    "display_leagues": {
+      "collection": "league",
+      "dominant": true,
+      "via": "users_league_display"
+    },
+    "polls": {
+      "collection": "poll",
+      "via": "user"
+    },
+    "voting_polls": {
+      "collection": "poll",
+      "via": "voting_users"
     }
-  },
-  "collectionName": "users-permissions_user"
+  }
 }

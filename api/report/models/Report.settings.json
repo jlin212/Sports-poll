@@ -1,0 +1,28 @@
+{
+  "connection": "default",
+  "collectionName": "reports",
+  "info": {
+    "name": "report",
+    "description": "all report"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "title": {
+      "required": true,
+      "type": "string"
+    },
+    "body": {
+      "maxLength": 1500,
+      "required": true,
+      "type": "text"
+    },
+    "comment": {
+      "model": "comment",
+      "via": "report"
+    }
+  }
+}
