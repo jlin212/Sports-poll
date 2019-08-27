@@ -114,3 +114,4 @@ build
 /.idea/
 /config/environments/development/
 /public/uploads/
+/config/environments/
