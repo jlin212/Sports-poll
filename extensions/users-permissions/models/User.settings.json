@@ -113,14 +113,6 @@
       "default": true,
       "type": "boolean"
     },
-    "opinions": {
-      "collection": "opinion",
-      "via": "user"
-    },
-    "vote_opinions": {
-      "collection": "opinion",
-      "via": "vote_users"
-    },
     "day_of_birthday": {
       "type": "date"
     },
@@ -164,6 +156,22 @@
     "voting_polls": {
       "collection": "poll",
       "via": "voting_users"
+    },
+    "polls_views": {
+      "collection": "poll",
+      "via": "users_views"
+    },
+    "opinions": {
+      "collection": "opinion",
+      "via": "user"
+    },
+    "vote_opinions": {
+      "collection": "opinion",
+      "via": "vote_users"
+    },
+    "opinions_views": {
+      "collection": "opinion",
+      "via": "users_views"
     }
   }
 }
