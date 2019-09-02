@@ -149,18 +149,6 @@
       "dominant": true,
       "via": "users_league_display"
     },
-    "polls": {
-      "collection": "poll",
-      "via": "user"
-    },
-    "voting_polls": {
-      "collection": "poll",
-      "via": "voting_users"
-    },
-    "polls_views": {
-      "collection": "poll",
-      "via": "users_views"
-    },
     "opinions": {
       "collection": "opinion",
       "via": "user"
@@ -171,6 +159,18 @@
     },
     "opinions_views": {
       "collection": "opinion",
+      "via": "users_views"
+    },
+    "polls": {
+      "collection": "poll",
+      "via": "user"
+    },
+    "voting_polls": {
+      "collection": "poll",
+      "via": "voting_users"
+    },
+    "polls_views": {
+      "collection": "poll",
       "via": "users_views"
     }
   }
