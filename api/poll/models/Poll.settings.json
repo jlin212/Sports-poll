@@ -62,10 +62,6 @@
       "type": "json",
       "default": "{}"
     },
-    "opinions": {
-      "collection": "opinion",
-      "via": "poll"
-    },
     "user": {
       "model": "user",
       "via": "polls",
@@ -80,6 +76,16 @@
     "league": {
       "model": "league",
       "via": "polls"
+    },
+    "users_views": {
+      "collection": "user",
+      "via": "polls_views",
+      "dominant": true,
+      "plugin": "users-permissions"
+    },
+    "opinions": {
+      "collection": "opinion",
+      "via": "poll"
     }
   }
 }

@@ -30,10 +30,6 @@
       "default": 0,
       "type": "integer"
     },
-    "opinion": {
-      "model": "opinion",
-      "via": "comments"
-    },
     "video": {
       "model": "file",
       "via": "related",
@@ -61,6 +57,10 @@
       "dominant": true,
       "via": "vote_comments",
       "plugin": "users-permissions"
+    },
+    "opinion": {
+      "model": "opinion",
+      "via": "comments"
     }
   }
 }
