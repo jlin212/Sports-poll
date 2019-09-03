@@ -59,15 +59,15 @@
       "dominant": true,
       "plugin": "users-permissions"
     },
-    "poll": {
-      "model": "poll",
-      "via": "opinions"
-    },
     "users_views": {
       "collection": "user",
       "via": "opinions_views",
       "dominant": true,
       "plugin": "users-permissions"
+    },
+    "poll": {
+      "model": "poll",
+      "via": "opinions"
     }
   }
 }

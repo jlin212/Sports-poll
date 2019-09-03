@@ -86,6 +86,14 @@
     "opinions": {
       "collection": "opinion",
       "via": "poll"
+    },
+    "front_slider": {
+      "default": false,
+      "type": "boolean"
+    },
+    "archived": {
+      "default": false,
+      "type": "boolean"
     }
   }
 }
