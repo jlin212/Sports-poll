@@ -80,8 +80,8 @@ $RECYCLE.BIN/
 ssl
 .idea
 nbproject
-!public/uploads/*
-!public/uploads/.gitkeep
+#!public/uploads/*
+#!public/uploads/.gitkeep
 
 ############################
 # Node.js
@@ -110,8 +110,7 @@ coverage
 exports
 .cache
 build
-/config/environments/
-/.idea/
-/config/environments/development/
-/public/uploads/
-/config/environments/
+config/environments/*
+.idea/*
+config/environments/development/*
+public/uploads/*
