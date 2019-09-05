@@ -146,8 +146,8 @@
     },
     "display_leagues": {
       "collection": "league",
-      "dominant": true,
-      "via": "users_league_display"
+      "via": "users_league_display",
+      "dominant": true
     },
     "opinions": {
       "collection": "opinion",
@@ -172,6 +172,9 @@
     "polls_views": {
       "collection": "poll",
       "via": "users_views"
+    },
+    "display_day_of_birthday": {
+      "type": "boolean"
     }
   }
 }

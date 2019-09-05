@@ -62,26 +62,9 @@
       "type": "json",
       "default": "{}"
     },
-    "user": {
-      "model": "user",
-      "via": "polls",
-      "plugin": "users-permissions"
-    },
-    "voting_users": {
-      "collection": "user",
-      "via": "voting_polls",
-      "dominant": true,
-      "plugin": "users-permissions"
-    },
     "league": {
       "model": "league",
       "via": "polls"
-    },
-    "users_views": {
-      "collection": "user",
-      "via": "polls_views",
-      "dominant": true,
-      "plugin": "users-permissions"
     },
     "opinions": {
       "collection": "opinion",
@@ -94,6 +77,23 @@
     "archived": {
       "default": false,
       "type": "boolean"
+    },
+    "user": {
+      "model": "user",
+      "via": "polls",
+      "plugin": "users-permissions"
+    },
+    "voting_users": {
+      "collection": "user",
+      "dominant": true,
+      "via": "voting_polls",
+      "plugin": "users-permissions"
+    },
+    "users_views": {
+      "collection": "user",
+      "dominant": true,
+      "via": "polls_views",
+      "plugin": "users-permissions"
     }
   }
 }
