@@ -94,6 +94,10 @@
       "dominant": true,
       "via": "polls_views",
       "plugin": "users-permissions"
+    },
+    "reports": {
+      "collection": "report",
+      "via": "poll"
     }
   }
 }

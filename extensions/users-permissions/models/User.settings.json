@@ -175,6 +175,10 @@
     },
     "display_day_of_birthday": {
       "type": "boolean"
+    },
+    "reports": {
+      "collection": "report",
+      "via": "report_author"
     }
   }
 }
