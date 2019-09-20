@@ -25,14 +25,14 @@
       "plugin": "upload",
       "required": false
     },
+    "league": {
+      "model": "league",
+      "via": "commands"
+    },
     "users_favorites": {
       "collection": "user",
       "via": "favorite_command",
       "plugin": "users-permissions"
-    },
-    "league": {
-      "model": "league",
-      "via": "commands"
     }
   }
 }

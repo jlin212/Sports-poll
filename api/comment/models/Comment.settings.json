@@ -47,6 +47,10 @@
       "model": "report",
       "via": "comment"
     },
+    "opinion": {
+      "model": "opinion",
+      "via": "comments"
+    },
     "user": {
       "model": "user",
       "via": "comments",
@@ -57,10 +61,6 @@
       "dominant": true,
       "via": "vote_comments",
       "plugin": "users-permissions"
-    },
-    "opinion": {
-      "model": "opinion",
-      "via": "comments"
     }
   }
 }

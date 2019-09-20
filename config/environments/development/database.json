@@ -7,7 +7,7 @@
         "client": "postgres",
         "host": "db.jaguar-team.com",
         "port": 5432,
-        "database": "sports_poll_new",
+        "database": "sports_poll",
         "username": "postgres",
         "password": "Vfuytpbz10"
       },
