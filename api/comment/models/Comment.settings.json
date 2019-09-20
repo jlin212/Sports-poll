@@ -43,9 +43,9 @@
       "model": "comment",
       "via": "comments"
     },
-    "report": {
-      "model": "report",
-      "via": "comment"
+    "opinion": {
+      "model": "opinion",
+      "via": "comments"
     },
     "opinion": {
       "model": "opinion",
@@ -61,6 +61,10 @@
       "dominant": true,
       "via": "vote_comments",
       "plugin": "users-permissions"
-    }
+   },
+    "reports": {
+      "collection": "report",
+      "via": "comment"   
+ }
   }
 }
