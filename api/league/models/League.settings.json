@@ -28,14 +28,14 @@
       "collection": "command",
       "via": "league"
     },
-    "polls": {
-      "collection": "poll",
-      "via": "league"
-    },
     "users_league_display": {
       "collection": "user",
       "via": "display_leagues",
       "plugin": "users-permissions"
+    },
+    "polls": {
+      "collection": "poll",
+      "via": "league"
     }
   }
 }

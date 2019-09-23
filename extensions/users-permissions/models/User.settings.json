@@ -161,6 +161,13 @@
       "collection": "opinion",
       "via": "users_views"
     },
+    "display_day_of_birthday": {
+      "type": "boolean"
+    },
+    "reports": {
+      "collection": "report",
+      "via": "report_author"
+    },
     "polls": {
       "collection": "poll",
       "via": "user"
@@ -172,13 +179,6 @@
     "polls_views": {
       "collection": "poll",
       "via": "users_views"
-    },
-    "display_day_of_birthday": {
-      "type": "boolean"
-    },
-    "reports": {
-      "collection": "report",
-      "via": "report_author"
     }
   }
 }
