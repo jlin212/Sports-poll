@@ -111,6 +111,8 @@ exports
 build
 build/*
 config/environments/*
+config/environments
 .idea/*
 config/environments/development/*
 public/uploads/*
+config/environments/development
