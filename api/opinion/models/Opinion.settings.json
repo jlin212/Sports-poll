@@ -48,10 +48,6 @@
       "collection": "comment",
       "via": "opinion"
     },
-    "poll": {
-      "model": "poll",
-      "via": "opinions"
-    },
     "user": {
       "model": "user",
       "via": "opinions",
@@ -68,6 +64,10 @@
       "dominant": true,
       "via": "opinions_views",
       "plugin": "users-permissions"
+    },
+    "poll": {
+      "model": "poll",
+      "via": "opinions"
     }
   }
 }

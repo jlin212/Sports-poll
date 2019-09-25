@@ -2,7 +2,9 @@
   "host": "localhost",
   "port": 1337,
   "proxy": {
-    "enabled": false
+    "enabled": true,
+    "host": "dev.heatedsports.com/api",
+    "ssl": true
   },
   "cron": {
     "enabled": false

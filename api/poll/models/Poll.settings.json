@@ -71,11 +71,9 @@
       "via": "poll"
     },
     "front_slider": {
-      "default": false,
       "type": "boolean"
     },
     "archived": {
-      "default": false,
       "type": "boolean"
     },
     "user": {
@@ -85,15 +83,23 @@
     },
     "voting_users": {
       "collection": "user",
-      "dominant": true,
       "via": "voting_polls",
+      "dominant": true,
       "plugin": "users-permissions"
     },
     "users_views": {
       "collection": "user",
-      "dominant": true,
       "via": "polls_views",
+      "dominant": true,
       "plugin": "users-permissions"
+    },
+    "reports": {
+      "collection": "report",
+      "via": "poll"
+    },
+    "publish": {
+      "default": true,
+      "type": "boolean"
     }
   }
 }

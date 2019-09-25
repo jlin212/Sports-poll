@@ -7,7 +7,10 @@
   },
   "options": {
     "increments": true,
-    "timestamps": true,
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
     "comment": ""
   },
   "attributes": {
@@ -18,15 +21,13 @@
     "baner_bg": {
       "model": "file",
       "via": "related",
-      "plugin": "upload",
-      "required": false
+      "plugin": "upload"
     },
     "body": {
       "default": "",
       "type": "text"
     },
     "in_footer": {
-      "default": false,
       "type": "boolean"
     },
     "aliase": {
@@ -34,7 +35,6 @@
       "type": "string"
     },
     "sidebar_menu": {
-      "default": false,
       "type": "boolean"
     },
     "list_data": {
@@ -42,7 +42,6 @@
       "type": "json"
     },
     "subfooter": {
-      "default": false,
       "type": "boolean"
     }
   }
