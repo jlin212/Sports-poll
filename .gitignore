@@ -109,6 +109,7 @@ coverage
 exports
 .cache
 build
+build/*
 config/environments/*
 .idea/*
 config/environments/development/*
