@@ -33,6 +33,10 @@
       "collection": "user",
       "via": "favorite_command",
       "plugin": "users-permissions"
+    },
+    "polls": {
+      "collection": "poll",
+      "via": "command"
     }
   }
 }
