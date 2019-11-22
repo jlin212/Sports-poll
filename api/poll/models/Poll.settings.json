@@ -104,6 +104,9 @@
     "command": {
       "model": "command",
       "via": "polls"
+    },
+    "topic_page": {
+      "type": "boolean"
     }
   }
 }
